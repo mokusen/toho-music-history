@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* ナビゲーション */
+nav {
+	font-size: 0.78rem;
+	background: #000000;
+}
+@media screen and (min-width: 768px) {
+	nav {
+		font-size: 1rem;
+	}
+}
+.nav-container {
+	position: absolute;
+	top: 62px;
+	right: 0;
+	z-index: 20;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background: #638a30;
+	box-shadow: 0px 5px 5px  rgba(0,0,0,0.4);
+}
+.globalnav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.globalnav li a {
+	display: block;
+	padding: 15px 20px;
+	border-bottom: 1px solid #8bb15a;
+	text-decoration: none;
+	line-height: 100%;
+	color: #ffffff;
+}
+.globalnav li a:hover,
+.globalnav li a.current {
+	background: #8bb15a;
+	color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+	.nav-container {
+		position: relative;
+		top: 0;
+		left: 0;
+		padding: 0 20px 0 20px;
+		width: 100%;
+		background: none;
+		box-shadow: none;
+	}
+	.globalnav {
+		overflow: hidden;
+	}
+	.globalnav li {
+		float: left;
+		width: 20%;
+	}
+	.globalnav li a {
+		padding: 10px 0;
+		border-bottom: 8px solid #ffffff;
+		text-align: center;
+	}
+	.globalnav li a:hover,
+	.globalnav li a.current {
+		border-bottom: 8px solid #7bae34;
+	}
+}
+.pricelist-table-wrapper {
+	overflow-x: scroll;
+}
+@media screen and (min-width: 768px) {
+	.pricelist-table-wrapper {
+		overflow-x: auto;
+	}
+}
+.pricelist-table {
+	border-collapse: collapse;
+	min-width: 728px;
+}
+.pricelist-table th,
+.pricelist-table td {
+	padding: 1rem;
+	border: 1px solid #dadada;
+}
+.pricelist-table th {
+	background-color: #37b9d5;
+	color: #ffffff;
+	font-size: 1.2rem;
+	text-align: left;
+	white-space: nowrap;
+}

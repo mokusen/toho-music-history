@@ -2,7 +2,7 @@
 /* ナビゲーション */
 nav {
 	font-size: 0.78rem;
-	background: #000000;
+	background: #062C54;
 }
 @media screen and (min-width: 768px) {
 	nav {
@@ -11,13 +11,13 @@ nav {
 }
 .nav-container {
 	position: absolute;
-	top: 62px;
+	top: 39px;
 	right: 0;
 	z-index: 20;
 	margin: 0;
 	padding: 0;
 	width: 200px;
-	background: #638a30;
+	background: #062C54;
 	box-shadow: 0px 5px 5px  rgba(0,0,0,0.4);
 }
 .globalnav {
@@ -28,14 +28,8 @@ nav {
 .globalnav li a {
 	display: block;
 	padding: 15px 20px;
-	border-bottom: 1px solid #8bb15a;
 	text-decoration: none;
 	line-height: 100%;
-	color: #ffffff;
-}
-.globalnav li a:hover,
-.globalnav li a.current {
-	background: #8bb15a;
 	color: #ffffff;
 }
 @media screen and (min-width: 768px) {
@@ -57,12 +51,7 @@ nav {
 	}
 	.globalnav li a {
 		padding: 10px 0;
-		border-bottom: 8px solid #ffffff;
 		text-align: center;
-	}
-	.globalnav li a:hover,
-	.globalnav li a.current {
-		border-bottom: 8px solid #7bae34;
 	}
 }
 .pricelist-table-wrapper {
@@ -75,7 +64,6 @@ nav {
 }
 .pricelist-table {
 	border-collapse: collapse;
-	min-width: 728px;
 }
 .pricelist-table th,
 .pricelist-table td {

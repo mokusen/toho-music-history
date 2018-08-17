@@ -1,7 +1,7 @@
 {% extends 'tohocd/base.html' %}
 <div class="search-wrapper">
     <form action="/tohocd/cd/" method="GET">
-        <tr><th></th><td><input type="text" name="find" class="search-text" id="id_find" /></td></tr><button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+        {{form}}<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
         <p>CD名、サークル名、発売日で検索することができます。</p>
     </form>
     
@@ -10,7 +10,7 @@
         <hr>
     </ul>
     <div class="pagination">
-        <p>全{{max}件中 {{}}～{{}}件を表示</p>
+        <p>全{{max}件中 {{display_min}}～{{display_max}}件を表示</p>
         
             <ul>
                 <li class="current"><a href="/tohocd/cd/?find=&amp;page=1">1</a></li>

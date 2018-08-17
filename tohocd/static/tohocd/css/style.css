@@ -1,14 +1,17 @@
 @charset "utf-8";
 html {
-	font-size: 16px;
+	font-size: 15px;
 }
 @media screen and (min-width: 768px) {
 	html {
-		font-size: 14px;
+		font-size: 18px;
 	}
 }
 html * {
 	box-sizing: border-box;
+}
+body {
+	margin: 0;
 }
 /* ========== Javascript用CSS ========== */
 /* ナビゲーションを最初は非表示。 */

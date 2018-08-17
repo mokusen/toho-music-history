@@ -1,2 +1,6 @@
 __pycache__/
 *.sqlite3
+*.csv
+dbAccess
+START.md
+manage.py

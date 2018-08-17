@@ -21,16 +21,16 @@
         <nav>
             <div class="nav-container" id="js-slidemenu">
                 <ul class="globalnav">
-                    <li><a href="/tohocd/search/"><i class="fas fa-search"></i> 検索</a></li>
-                    <li><a href="/tohocd/detail/"><i class="fas fa-search"></i> 詳細検索</a></li>
-                    <li><a href="/tohocd/cd/"><i class="fas fa-info-circle"></i> CD情報</a></li>
-                    <li><a href="/tohocd/circle/"><i class="fas fa-info-circle"></i> サークル情報</a></li>
-                    <li><a href="/tohocd/search/"><i class="fas fa-info-circle"></i> 曲情報</a></li>
-                    <li><a href="/tohocd/vocal/"><i class="fas fa-info-circle"></i> 歌手情報</a></li>
-                    <li><a href="/tohocd/lyric/"><i class="fas fa-info-circle"></i> 作詞情報</a></li>
-                    <li><a href="/tohocd/arrange/"><i class="fas fa-info-circle"></i> 編曲情報</a></li>
-                    <li><a href="/tohocd/orisong/"><i class="fas fa-info-circle"></i> 原曲情報</a></li>
-                    <li><a href="/tohocd/oriwork/"><i class="fas fa-info-circle"></i> 原作情報</a></li>
+                    <li><a href="{% url 'search' %}"><i class="fas fa-search"></i> 検索</a></li>
+                    <li><a href="{% url 'detail' %}"><i class="fas fa-search"></i> 詳細検索</a></li>
+                    <li><a href="{% url 'cd' %}"><i class="fas fa-info-circle"></i> CD情報</a></li>
+                    <li><a href="{% url 'circle' %}"><i class="fas fa-info-circle"></i> サークル情報</a></li>
+                    <li><a href="{% url 'search' %}"><i class="fas fa-info-circle"></i> 曲情報</a></li>
+                    <li><a href="{% url 'vocal' %}"><i class="fas fa-info-circle"></i> 歌手情報</a></li>
+                    <li><a href="{% url 'lyric' %}"><i class="fas fa-info-circle"></i> 作詞情報</a></li>
+                    <li><a href="{% url 'arrange' %}"><i class="fas fa-info-circle"></i> 編曲情報</a></li>
+                    <li><a href="{% url 'orisong' %}"><i class="fas fa-info-circle"></i> 原曲情報</a></li>
+                    <li><a href="{% url 'oriwork' %}"><i class="fas fa-info-circle"></i> 原作情報</a></li>
                 </ul>
             </div>
         </nav>
@@ -38,5 +38,5 @@
         {% endblock %}
     </body>
     <script src="{% static 'tohocd/scripts/jquery-3.1.1.min.js' %}"></script>
-    <script src="{% static 'tohocd/scripts/custem.js' %}"></script>
+    <script src="{% static 'tohocd/scripts/custom.js' %}"></script>
 </html>

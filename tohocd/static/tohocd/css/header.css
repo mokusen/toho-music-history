@@ -1,17 +1,17 @@
 @charset "utf-8";
 header {
 	position: relative;
-	background: #000000;
+	background: white;
 }
 .header-container {
-	padding: 20px;
+	
 }
 .header-logo {
 	margin: 0;
-	width: 100px;
-	height: 22px;
+	width: 150px;
+	height: 33px;
 	background-image: url(../images/logo.png);
-	background-size: 100px 22px;
+	background-size: 150px 33px;
 	background-repeat: no-repeat;
 	text-indent: -9999px;
 }
@@ -32,10 +32,10 @@ header {
 	top: 0;
 	right: 0;
 	z-index: 30;
-	width: 62px;
-	height: 62px;
-	background-image: url(../images/navbtn.png);
-	background-size: 62px 62px;
+	width: 33px;
+	height: 33px;
+	background-image: url(../images/Orion_menu.svg);
+	background-size: 33px 33px;
 }
 .header-navbtn:hover, .header-navbtn:active {
 	background-color: #8bb15a;

@@ -1,7 +1,7 @@
 from django import forms
 
 class FindForm(forms.Form):
-    find = forms.CharField(max_length=255)
+    find = forms.CharField(max_length=255, required=False)
 
 class DetailForm(forms.Form):
     circle = forms.CharField(max_length=255,widget=forms.TextInput(

@@ -1,1 +1,17 @@
 {% extends 'tohocd/base.html' %}
+{% block content %}
+    <div>
+        <form action="{% url 'search' %}">
+            {{form}}<button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div>
+        <ul>{% for date in song %}
+            <li>
+                {{date.cd.cd_name}}
+                {{date.cd.circle.circle_name}}
+                {{date.song_name}}
+            </li>
+        {% endfor %}</ul>
+    </div>
+{% endblock %}

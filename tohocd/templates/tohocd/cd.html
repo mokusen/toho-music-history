@@ -1,1 +1,28 @@
 {% extends 'tohocd/base.html' %}
+{% block content %}
+    <div class="search-wrapper">
+        <form action="{% url 'cd' %}" method="GET">
+            {{form}}<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+            <p>CD名、サークル名、発売日で検索することができます。</p>
+        </form>
+    {% if max != 0 %}
+        <ul class="cdList">
+            <li><span><i class="fas fa-compact-disc"></i> CD名</span><span><i class="fas fa-users"></i> サークル名</span><span><i class="far fa-calendar-alt"></i> 発売日</span></li>
+            <hr>
+            {% for cd in data %}<li><span>{{cd.cd_name}}</span><span>{{cd.circle.circle_name}}</span><span>{{cd.release_on}}</span></li>{% endfor %}
+        </ul>
+        <div class="pagination">
+            <p>全{{max}}件中 {{display_min}}～{{display_max}}件を表示</p>
+            
+                <ul>
+                    <li class="current"><a href="/tohocd/cd/?find=&amp;page=1">1</a></li>
+                    
+                        <li><a href="/tohocd/cd/?find=&amp;page=2">&gt;</a></li>
+                        <li><a href="/tohocd/cd/?find=&amp;page=3">&raquo;</a></li>
+                    
+                </ul>
+            
+        </div>
+    {% endif %}
+    </div>
+{% endblock %}

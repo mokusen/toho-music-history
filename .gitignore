@@ -2,5 +2,5 @@ __pycache__/
 *.sqlite3
 *.csv
 dbAccess
-START.md
+spec
 manage.py

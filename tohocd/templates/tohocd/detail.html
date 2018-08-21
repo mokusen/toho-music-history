@@ -1,1 +1,38 @@
 {% extends 'tohocd/base.html' %}
+{% block content %}
+    <div>
+        <form action="{% url 'detail' %}">
+            {{form}}<button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    {% if max != 0 %}
+        <table>
+            <tr>
+                <th><i class="fas fa-compact-disc"></i> CD名</th>
+                <th><i class="fas fa-users"></i> サークル名</th>
+                <th><i class="fas fa-users"></i> 曲名</th>
+                <th><i class="fas fa-users"></i> 歌手</th>
+                <th><i class="fas fa-users"></i> 作詞者</th>
+                <th><i class="fas fa-users"></i> 編曲者</th>
+                <th><i class="fas fa-users"></i> 原曲</th>
+                <th><i class="fas fa-users"></i> 原作</th>
+                <th><i class="far fa-calendar-alt"></i> 発売日</th>
+            </tr>
+        {% for song in data %}
+            <tr>
+                <td><a href="{{song.cd.circle.circle_url}}{{song.cd.cd_url}}">{{song.cd.cd_name}}</a></td>
+                <td><a href="{{song.cd.circle.circle_url}}">{{song.cd.circle.circle_name}}</a></td>
+                <td>{{song.song_name}}</td>
+                <td>{% for song_info in song.song_info_set.all %}{{song_info.vocal.vocal_name}}<br>{% endfor %}</td>
+                <td>{% for song_info in song.song_info_set.all %}{{song_info.lyric.lyric_name}}<br>{% endfor %}</td>
+                <td>{% for song_info in song.song_info_set.all %}{{song_info.arrange.arrange_name}}<br>{% endfor %}</td>
+                <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_name}}<br>{% endfor %}</td>
+                <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_work.original_work_name}}<br>{% endfor %}</td>
+                <td>{{song.cd.release_on}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>{{msg}}</p>
+    {% endif %}
+    </div>
+{% endblock %}

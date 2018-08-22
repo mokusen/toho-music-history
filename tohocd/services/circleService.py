@@ -1,5 +1,4 @@
 from ..models import Circle_master
-from django.db.models import Q
 
 def get_circles(word):
     """

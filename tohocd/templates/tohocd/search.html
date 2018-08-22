@@ -1,4 +1,5 @@
 {% extends 'tohocd/base.html' %}
+{% load item_extra %}
 {% block content %}
     <div>
         <form action="{% url 'search' %}">
@@ -31,6 +32,22 @@
             </tr>
         {% endfor %}
         </table>
+        <div class="pagination">
+            <p>全{{max}}件中 {{display_min}}～{{display_max}}件を表示</p>
+
+                <ul>
+                {% if data.has_previous %}
+                    <li><a href="{% url 'search' %}">&gt;</a></li>
+                    <li><a href="{% url 'search' %}?{% url_add request data.previous_page_number %}">&raquo;</a></li>
+                {% endif %}
+                    <li class="current"><a href="{% url 'search' %}?{% url_add request data.number %}">{{data.number}}</a></li>
+                {% if data.has_next %}
+                    <li><a href="{% url 'search' %}?{% url_add request data.next_page_number %}">&gt;</a></li>
+                    <li><a href="{% url 'search' %}?{% url_add request data.paginator.num_pages %}">&raquo;</a></li>
+                {% endif %}
+                </ul>
+            
+        </div>
     {% else %}
         <p>{{msg}}</p>
     {% endif %}

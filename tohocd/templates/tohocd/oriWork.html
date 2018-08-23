@@ -1,5 +1,4 @@
 {% extends 'tohocd/base.html' %}
-{% load item_extra %}
 {% block content %}
     <div class="search-wrapper">
         <form action="{% url 'oriwork' %}" method="GET">
@@ -7,27 +6,12 @@
             <p>原作名で検索することができます。</p>
         </form>
     {% if max != 0 %}
-        <ul class="cdList">
+        <ul class="someList">
             <li><span><i class="fas fa-users"></i> 原作名</span></li>
             <hr>
             {% for oriwork in data %}<li><span>{{oriwork.original_work_name}}</span></li>{% endfor %}
         </ul>
-        <div class="pagination">
-            <p>全{{max}}件中 {{display_min}}～{{display_max}}件を表示</p>
-
-                <ul>
-                {% if data.has_previous %}
-                    <li><a href="{% url 'oriwork' %}">&gt;</a></li>
-                    <li><a href="{% url 'oriwork' %}?{% url_add request data.previous_page_number %}">&raquo;</a></li>
-                {% endif %}
-                    <li class="current"><a href="{% url 'oriwork' %}?{% url_add request data.number %}">{{data.number}}</a></li>
-                {% if data.has_next %}
-                    <li><a href="{% url 'oriwork' %}?{% url_add request data.next_page_number %}">&gt;</a></li>
-                    <li><a href="{% url 'oriwork' %}?{% url_add request data.paginator.num_pages %}">&raquo;</a></li>
-                {% endif %}
-                </ul>
-            
-        </div>
+        {% include 'tohocd/pagination.html' %}
     {% endif %}
     </div>
 {% endblock %}

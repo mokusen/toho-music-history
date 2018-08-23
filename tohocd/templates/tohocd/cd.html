@@ -1,5 +1,4 @@
 {% extends 'tohocd/base.html' %}
-{% load item_extra %}
 {% block content %}
     <div class="search-wrapper">
         <form action="{% url 'cd' %}" method="GET">
@@ -9,25 +8,10 @@
     {% if max != 0 %}
         <ul class="cdList">
             <li><span><i class="fas fa-compact-disc"></i> CD名</span><span><i class="fas fa-users"></i> サークル名</span><span><i class="far fa-calendar-alt"></i> 発売日</span></li>
-            <hr>
-            {% for cd in data %}<li><span>{{cd.cd_name}}</span><span>{{cd.circle.circle_name}}</span><span>{{cd.release_on}}</span></li>{% endfor %}
+            <hr>{% for cd in data %}
+            <li><a href="{% url 'cd_detail' %}?cdId={{cd.id}}"><span>{{cd.cd_name}}</span><span>{{cd.circle.circle_name}}</span><span>{{cd.release_on}}</span></a></li>{% endfor %}
         </ul>
-        <div class="pagination">
-            <p>全{{max}}件中 {{display_min}}～{{display_max}}件を表示</p>
-
-                <ul>
-                {% if data.has_previous %}
-                    <li><a href="{% url 'cd' %}">&gt;</a></li>
-                    <li><a href="{% url 'cd' %}?{% url_add request data.previous_page_number %}">&raquo;</a></li>
-                {% endif %}
-                    <li class="current"><a href="{% url 'cd' %}?{% url_add request data.number %}">{{data.number}}</a></li>
-                {% if data.has_next %}
-                    <li><a href="{% url 'cd' %}?{% url_add request data.next_page_number %}">&gt;</a></li>
-                    <li><a href="{% url 'cd' %}?{% url_add request data.paginator.num_pages %}">&raquo;</a></li>
-                {% endif %}
-                </ul>
-            
-        </div>
+        {% include 'tohocd/pagination.html' %}
     {% endif %}
     </div>
 {% endblock %}

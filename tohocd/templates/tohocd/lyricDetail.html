@@ -1,14 +1,11 @@
 {% extends 'tohocd/base.html' %}
 {% block content %}
-    <div>
-        <form action="{% url 'detail' %}">
+    <div class="search-wrapper">
+        <form action="{% url 'lyric_detail' %}">
             {{form}}<button type="submit"><i class="fas fa-search"></i></button>
         </form>
-    {% if max != 0 %}
+        <p>{{lyric.get.lyric_name}}</p>
         {% include 'tohocd/cdAll_info.html' %}
         {% include 'tohocd/pagination.html' %}
-    {% else %}
-        <p>{{msg}}</p>
-    {% endif %}
     </div>
 {% endblock %}

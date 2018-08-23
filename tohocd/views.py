@@ -51,6 +51,16 @@ def cd(request):
     params = handleParam.create_param(cd, num, form, 'form')
     return render(request, 'tohocd/cd.html', params)
 
+def cd_detail(request):
+    if 'cdId' in request.GET:
+        id = request.GET['cdId']
+        cd = cdService.get_cd_byId(id)
+        data = songService.get_song_byCd(id)
+        params = {'cd': cd, 'data':data}
+        return render(request, 'tohocd/cdDetail.html', params)
+    else:
+        return redirect('/tohocd/cd')
+
 def circle(request):
     if 'find' in request.GET:
         word = request.GET['find']
@@ -81,6 +91,16 @@ def vocal(request):
     params = handleParam.create_param(vocal, num, form, 'form')
     return render(request, 'tohocd/vocal.html', params)
 
+def vocal_detail(request):
+    if 'vocalId' in request.GET:
+        id = request.GET['vocalId']
+        vocal = vocalService.get_vocal_byId(id)
+        data = songService.get_song_byVocal(id)
+        params = {'vocal': vocal, 'data':data}
+        return render(request, 'tohocd/vocalDetail.html', params)
+    else:
+        return redirect('/tohocd/vocal')
+
 def lyric(request):
     if 'find' in request.GET:
         word = request.GET['find']
@@ -95,6 +115,16 @@ def lyric(request):
     lyric = lyricService.get_lyrics(word)
     params = handleParam.create_param(lyric, num, form, 'form')
     return render(request, 'tohocd/lyric.html', params)
+
+def lyric_detail(request):
+    if 'lyricId' in request.GET:
+        id = request.GET['lyricId']
+        lyric = lyricService.get_lyric_byId(id)
+        data = songService.get_song_byLyric(id)
+        params = {'lyric': lyric, 'data':data}
+        return render(request, 'tohocd/lyricDetail.html', params)
+    else:
+        return redirect('/tohocd/lyric')
 
 def arrange(request):
     if 'find' in request.GET:
@@ -111,6 +141,16 @@ def arrange(request):
     params = handleParam.create_param(arrange, num, form, 'form')
     return render(request, 'tohocd/arrange.html', params)
 
+def arrange_detail(request):
+    if 'arrangeId' in request.GET:
+        id = request.GET['arrangeId']
+        arrange = arrangeService.get_arrange_byId(id)
+        data = songService.get_song_byArrange(id)
+        params = {'arrange': arrange, 'data':data}
+        return render(request, 'tohocd/arrangeDetail.html', params)
+    else:
+        return redirect('/tohocd/arrange')
+
 def orisong(request):
     if 'find' in request.GET:
         word = request.GET['find']
@@ -125,6 +165,16 @@ def orisong(request):
     orisong = orisongService.get_orisongs(word)
     params = handleParam.create_param(orisong, num, form, 'form')
     return render(request, 'tohocd/oriSong.html', params)
+
+def orisong_detail(request):
+    if 'orisongId' in request.GET:
+        id = request.GET['orisongId']
+        orisong = orisongService.get_orisong_byId(id)
+        data = songService.get_song_byOrisong(id)
+        params = {'orisong': orisong, 'data':data}
+        return render(request, 'tohocd/oriSongDetail.html', params)
+    else:
+        return redirect('/tohocd/orisong')
 
 def oriwork(request):
     if 'find' in request.GET:

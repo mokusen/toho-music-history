@@ -19,7 +19,6 @@ def create_param(model, num, any, any_name):
     param
         設定したParamを返す
     """
-    print(f"num: {num}")
     max = len(model)
     display_min = 25 * (num - 1)
     display_max = 25 * num if num < max / 25 else max

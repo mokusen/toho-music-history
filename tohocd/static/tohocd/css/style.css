@@ -13,6 +13,13 @@ html * {
 body {
 	margin: 0;
 }
+ul {
+	-webkit-padding-start: 0%;
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
 /* ========== Javascript用CSS ========== */
 /* ナビゲーションを最初は非表示。 */
 #js-slidemenu {
@@ -34,4 +41,10 @@ body {
 	top: 0;
 	left: 0;
 	z-index: 10;
+}
+.accordion {
+	text-align: center;
+}
+.accordion .inner {
+	display: none;
 }

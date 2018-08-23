@@ -2,27 +2,29 @@
 {% block content %}
     <div class="search-wrapper">
         <p><span><a href="{{cd.get.circle.circle_url}}{{cd.get.cd_url}}"></a>{{cd.get.cd_name}}</span><span><a href="{{cd.get.circle.circle_url}}"></a>{{cd.get.circle.circle_name}}</span></p>
-        <table>
-            <tr>
-                <th><i class="fas fa-users"></i> 曲名</th>
-                <th><i class="fas fa-users"></i> 歌手</th>
-                <th><i class="fas fa-users"></i> 作詞者</th>
-                <th><i class="fas fa-users"></i> 編曲者</th>
-                <th><i class="fas fa-users"></i> 原曲</th>
-                <th><i class="fas fa-users"></i> 原作</th>
-                <th><i class="far fa-calendar-alt"></i> 発売日</th>
-            </tr>
-        {% for song in data %}
-            <tr>
-                <td>{{song.song_name}}</td>
-                <td>{% for song_info in song.song_info_set.all %}{{song_info.vocal.vocal_name}}<br>{% endfor %}</td>
-                <td>{% for song_info in song.song_info_set.all %}{{song_info.lyric.lyric_name}}<br>{% endfor %}</td>
-                <td>{% for song_info in song.song_info_set.all %}{{song_info.arrange.arrange_name}}<br>{% endfor %}</td>
-                <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_name}}<br>{% endfor %}</td>
-                <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_work.original_work_name}}<br>{% endfor %}</td>
-                <td>{{song.cd.release_on}}</td>
-            </tr>
-        {% endfor %}
-        </table>
+        <div class="cdInfo-table-wrapper">    
+            <table class="cdInfo-table">
+                <tr>
+                    <th><i class="fas fa-users"></i> 曲名</th>
+                    <th><i class="fas fa-users"></i> 歌手</th>
+                    <th><i class="fas fa-users"></i> 作詞者</th>
+                    <th><i class="fas fa-users"></i> 編曲者</th>
+                    <th><i class="fas fa-users"></i> 原曲</th>
+                    <th><i class="fas fa-users"></i> 原作</th>
+                    <th><i class="far fa-calendar-alt"></i> 発売日</th>
+                </tr>
+            {% for song in data %}
+                <tr>
+                    <td>{{song.song_name}}</td>
+                    <td>{% for song_info in song.song_info_set.all %}{{song_info.vocal.vocal_name}}<br>{% endfor %}</td>
+                    <td>{% for song_info in song.song_info_set.all %}{{song_info.lyric.lyric_name}}<br>{% endfor %}</td>
+                    <td>{% for song_info in song.song_info_set.all %}{{song_info.arrange.arrange_name}}<br>{% endfor %}</td>
+                    <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_name}}<br>{% endfor %}</td>
+                    <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_work.original_work_name}}<br>{% endfor %}</td>
+                    <td>{{song.cd.release_on}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
     </div>
 {% endblock %}

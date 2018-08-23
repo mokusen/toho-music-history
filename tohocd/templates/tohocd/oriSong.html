@@ -8,8 +8,8 @@
     {% if max != 0 %}
         <ul class="someList">
             <li><span><i class="fas fa-users"></i> 原曲名</span></li>
-            <hr>
-            {% for orisong in data %}<li><a href="{% url 'orisong_detail' %}?orisongId={{orisong.id}}"><span>{{orisong.original_name}}</span></a></li>{% endfor %}
+            <hr>{% for orisong in data %}
+            <li><a href="{% url 'orisong_detail' %}?orisongId={{orisong.id}}"><span class="some">{{orisong.original_name}}</span></a></li>{% endfor %}
         </ul>
         {% include 'tohocd/pagination.html' %}
     {% endif %}

@@ -6,10 +6,13 @@
             <p>原作名で検索することができます。</p>
         </form>
     {% if max != 0 %}
-        <ul class="someList">
+        <ul class="someList accordion">
             <li><span><i class="fas fa-users"></i> 原作名</span></li>
-            <hr>
-            {% for oriwork in data %}<li><span>{{oriwork.original_work_name}}</span></li>{% endfor %}
+            <hr>{% for oriwork in data %}
+            <li><span class="some">{{oriwork.original_work_name}}</span></li>
+            <ul class="inner">{% for orisong in oriwork.original_song_set.all %}
+                <li><a href="{% url 'orisong_detail' %}?orisongId={{orisong.id}}">{{orisong.original_name}}</a></li>{% endfor %}
+            </ul>{% endfor %}
         </ul>
         {% include 'tohocd/pagination.html' %}
     {% endif %}

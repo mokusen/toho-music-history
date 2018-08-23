@@ -8,8 +8,8 @@
     {% if max != 0 %}
         <ul class="someList">
             <li><span><i class="fas fa-users"></i> 作詞者名</span></li>
-            <hr>
-            {% for lyric in data %}<li><a href="{% url 'lyric_detail' %}?lyricId={{lyric.id}}"><span>{{lyric.lyric_name}}</span></a></li>{% endfor %}
+            <hr>{% for lyric in data %}
+            <li><a href="{% url 'lyric_detail' %}?lyricId={{lyric.id}}"><span class="some">{{lyric.lyric_name}}</span></a></li>{% endfor %}
         </ul>
         {% include 'tohocd/pagination.html' %}
     {% endif %}

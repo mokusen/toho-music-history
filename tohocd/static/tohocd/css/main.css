@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* ナビゲーション */
+/* nav */
 nav {
 	font-size: 0.78rem;
 	background: #062C54;
@@ -54,6 +54,8 @@ nav {
 		text-align: center;
 	}
 }
+/* navここまで */
+/* cdList */
 .cdList a{
 	font-size:20px;
 	display:block;
@@ -67,7 +69,9 @@ nav {
   box-shadow: 0px 5px 5px rgba(0,0,0,0.4);
   transition:0.2s;
 }
-.someList a{
+/* cdListここまで */
+/* someList */
+.someList .some {
 	font-size:20px;
 	display:block;
 	padding:15px 25px;
@@ -76,30 +80,33 @@ nav {
 	margin-bottom:10px;
 	transition:0.2s;
 }
-.someList a:hover {
+.someList .some:hover {
   box-shadow: 0px 5px 5px rgba(0,0,0,0.4);
   transition:0.2s;
 }
-.pricelist-table-wrapper {
+/* someListここまで */
+/* cdInfo-table */
+.cdInfo-table-wrapper {
 	overflow-x: scroll;
 }
 @media screen and (min-width: 768px) {
-	.pricelist-table-wrapper {
+	.cdInfo-table-wrapper {
 		overflow-x: auto;
 	}
 }
-.pricelist-table {
+.cdInfo-table {
 	border-collapse: collapse;
 }
-.pricelist-table th,
-.pricelist-table td {
+.cdInfo-table th,
+.cdInfo-table td {
 	padding: 1rem;
 	border: 1px solid #dadada;
 }
-.pricelist-table th {
+.cdInfo-table th {
 	background-color: #37b9d5;
 	color: #ffffff;
 	font-size: 1.2rem;
 	text-align: left;
 	white-space: nowrap;
 }
+/* allTableここまで */

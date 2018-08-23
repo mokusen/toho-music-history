@@ -8,8 +8,8 @@
     {% if max != 0 %}
         <ul class="someList">
             <li><span><i class="fas fa-users"></i> 編曲者名</span></li>
-            <hr>
-            {% for arrange in data %}<li><a href="{% url 'arrange_detail' %}?arrangeId={{arrange.id}}"><span>{{arrange.arrange_name}}</span></a></li>{% endfor %}
+            <hr>{% for arrange in data %}
+            <li><a href="{% url 'arrange_detail' %}?arrangeId={{arrange.id}}"><span class="some">{{arrange.arrange_name}}</span></a></li>{% endfor %}
         </ul>
         {% include 'tohocd/pagination.html' %}
     {% endif %}

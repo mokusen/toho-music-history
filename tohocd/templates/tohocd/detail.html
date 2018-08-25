@@ -1,12 +1,12 @@
-{% extends 'tohocd/base.html' %}
+{% extends 'parts/base.html' %}
 {% block content %}
     <div>
         <form action="{% url 'detail' %}">
             {{form}}<button type="submit"><i class="fas fa-search"></i></button>
         </form>
     {% if max != 0 %}
-        {% include 'tohocd/cdAll_info.html' %}
-        {% include 'tohocd/pagination.html' %}
+        {% include 'parts/cdAll_info.html' %}
+        {% include 'parts/pagination.html' %}
     {% else %}
         <p>{{msg}}</p>
     {% endif %}

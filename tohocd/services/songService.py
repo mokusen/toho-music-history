@@ -74,7 +74,7 @@ def get_song_byCd(id):
     song = Song.objects.select_related().filter(cd__id=id).order_by('pk')
     return song
     
-def get_song_byVocal(id):
+def get_song_byVocal(id, word):
     """
     models.Vocal_master.idの完全一致でmodels.Songクラスを取得する
     
@@ -88,10 +88,21 @@ def get_song_byVocal(id):
     song
         models.Songクラスを返す
     """
-    song = Song.objects.select_related().filter(song_info__vocal__id=id).order_by('pk')
+    song = Song.objects.select_related().filter(
+        Q(song_info__vocal__id=id),
+        Q(song_name__contains=word) |
+        Q(cd__cd_name__contains=word) |
+        Q(cd__release_on__contains=word) |
+        Q(cd__circle__circle_name__contains=word) |
+        Q(song_info__vocal__vocal_name__contains=word) |
+        Q(song_info__lyric__lyric_name__contains=word) |
+        Q(song_info__arrange__arrange_name__contains=word) |
+        Q(original_info__original_song__original_name__contains=word) |
+        Q(original_info__original_song__original_work__original_work_name__contains=word)
+        ).order_by('pk')
     return song
 
-def get_song_byLyric(id):
+def get_song_byLyric(id, word):
     """
     models.Lyric_master.idの完全一致でmodels.Songクラスを取得する
     
@@ -105,10 +116,21 @@ def get_song_byLyric(id):
     song
         models.Songクラスを返す
     """
-    song = Song.objects.select_related().filter(song_info__lyric__id=id).order_by('pk')
+    song = Song.objects.select_related().filter(
+        Q(song_info__lyric__id=id),
+        Q(song_name__contains=word) |
+        Q(cd__cd_name__contains=word) |
+        Q(cd__release_on__contains=word) |
+        Q(cd__circle__circle_name__contains=word) |
+        Q(song_info__vocal__vocal_name__contains=word) |
+        Q(song_info__lyric__lyric_name__contains=word) |
+        Q(song_info__arrange__arrange_name__contains=word) |
+        Q(original_info__original_song__original_name__contains=word) |
+        Q(original_info__original_song__original_work__original_work_name__contains=word)
+        ).order_by('pk')
     return song
 
-def get_song_byArrange(id):
+def get_song_byArrange(id, word):
     """
     models.Arrange_master.idの完全一致でmodels.Songクラスを取得する
     
@@ -122,10 +144,21 @@ def get_song_byArrange(id):
     song
         models.Songクラスを返す
     """
-    song = Song.objects.select_related().filter(song_info__arrange__id=id).order_by('pk')
+    song = Song.objects.select_related().filter(
+        Q(song_info__arrange__id=id),
+        Q(song_name__contains=word) |
+        Q(cd__cd_name__contains=word) |
+        Q(cd__release_on__contains=word) |
+        Q(cd__circle__circle_name__contains=word) |
+        Q(song_info__vocal__vocal_name__contains=word) |
+        Q(song_info__lyric__lyric_name__contains=word) |
+        Q(song_info__arrange__arrange_name__contains=word) |
+        Q(original_info__original_song__original_name__contains=word) |
+        Q(original_info__original_song__original_work__original_work_name__contains=word)
+        ).order_by('pk')
     return song
 
-def get_song_byOrisong(id):
+def get_song_byOrisong(id, word):
     """
     models.Original_song.idの完全一致でmodels.Songクラスを取得する
     
@@ -139,5 +172,16 @@ def get_song_byOrisong(id):
     song
         models.Songクラスを返す
     """
-    song = Song.objects.select_related().filter(original_info__original_song__id=id).order_by('pk')
+    song = Song.objects.select_related().filter(
+        Q(original_info__original_song__id=id),
+        Q(song_name__contains=word) |
+        Q(cd__cd_name__contains=word) |
+        Q(cd__release_on__contains=word) |
+        Q(cd__circle__circle_name__contains=word) |
+        Q(song_info__vocal__vocal_name__contains=word) |
+        Q(song_info__lyric__lyric_name__contains=word) |
+        Q(song_info__arrange__arrange_name__contains=word) |
+        Q(original_info__original_song__original_name__contains=word) |
+        Q(original_info__original_song__original_work__original_work_name__contains=word)
+        ).order_by('pk')
     return song

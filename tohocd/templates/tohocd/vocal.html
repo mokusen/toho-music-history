@@ -1,4 +1,4 @@
-{% extends 'tohocd/base.html' %}
+{% extends 'parts/base.html' %}
 {% block content %}
     <div class="search-wrapper">
         <form action="{% url 'vocal' %}" method="GET">
@@ -9,9 +9,9 @@
         <ul class="someList">
             <li><span><i class="fas fa-users"></i> 歌手名</span></li>
             <hr>{% for vocal in data %}
-            <li><a href="{% url 'vocal_detail' %}?vocalId={{vocal.id}}"><span class="some">{{vocal.vocal_name}}</span></a></li>{% endfor %}
+            <li><a href="{% url 'vocal_detail' vocal.id %}"><span class="some">{{vocal.vocal_name}}</span></a></li>{% endfor %}
         </ul>
-        {% include 'tohocd/pagination.html' %}
+        {% include 'parts/pagination.html' %}
     {% endif %}
     </div>
 {% endblock %}

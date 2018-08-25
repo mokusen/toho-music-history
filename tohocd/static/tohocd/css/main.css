@@ -1,4 +1,8 @@
 @charset "utf-8";
+/* search */
+.search-wrapper {
+	margin:0 auto;
+} 
 /* nav */
 nav {
 	font-size: 0.78rem;
@@ -109,4 +113,42 @@ nav {
 	text-align: left;
 	white-space: nowrap;
 }
-/* allTableここまで */
+/* cdInfo-tableここまで */
+/* ページング */ 
+.pagination {
+	overflow: hidden;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.pagination ul{
+	display: inline-block;
+}
+.pagination li {
+	float: left;
+	border-top: 1px solid #b9b9b9;
+	border-bottom: 1px solid #b9b9b9;
+	border-left: 1px solid #b9b9b9;
+	background: #e0e0e0;
+}
+.pagination li:first-child {
+	border-radius: 10px 0 0 10px;
+}
+.pagination li:last-child {
+	border-right: 1px solid #b9b9b9;
+	border-radius: 0 10px 10px 0;
+}
+.pagination li:hover {
+	background: #d1d1d1;
+}
+.pagination li a {
+	display: block;
+	padding: 5px 20px;
+	text-decoration: none;
+	color: #3e5358;
+}
+.pagination li.current {
+	background: #f6d7b6;
+}
+/* ページングここまで */

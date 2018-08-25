@@ -20,6 +20,9 @@ ul {
 a {
 	text-decoration: none;
 }
+td, th{
+	white-space: nowrap;
+}
 /* ========== Javascript用CSS ========== */
 /* ナビゲーションを最初は非表示。 */
 #js-slidemenu {
@@ -42,6 +45,7 @@ a {
 	left: 0;
 	z-index: 10;
 }
+/* アコーディオンの設定 */
 .accordion {
 	text-align: center;
 }

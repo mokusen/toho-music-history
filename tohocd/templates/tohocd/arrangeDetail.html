@@ -1,11 +1,12 @@
-{% extends 'tohocd/base.html' %}
+{% extends 'parts/base.html' %}
+{% load item_extra %}
 {% block content %}
     <div class="search-wrapper">
-        <form action="{% url 'search' %}">
+        <form action="?{% url_add request 1 %}">
             {{form}}<button type="submit"><i class="fas fa-search"></i></button>
         </form>
         <p>{{arrange.get.arrange_name}}</p>
-        {% include 'tohocd/cdAll_info.html' %}
-        {% include 'tohocd/pagination.html' %}
+        {% include 'parts/cdAll_info.html' %}
+        {% include 'parts/pagination.html' %}
     </div>
 {% endblock %}

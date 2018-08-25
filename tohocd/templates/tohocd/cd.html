@@ -1,4 +1,4 @@
-{% extends 'tohocd/base.html' %}
+{% extends 'parts/base.html' %}
 {% block content %}
     <div class="search-wrapper">
         <form action="{% url 'cd' %}" method="GET">
@@ -9,9 +9,9 @@
         <ul class="cdList">
             <li><span><i class="fas fa-compact-disc"></i> CD名</span><span><i class="fas fa-users"></i> サークル名</span><span><i class="far fa-calendar-alt"></i> 発売日</span></li>
             <hr>{% for cd in data %}
-            <li><a href="{% url 'cd_detail' %}?cdId={{cd.id}}"><span>{{cd.cd_name}}</span><span>{{cd.circle.circle_name}}</span><span>{{cd.release_on}}</span></a></li>{% endfor %}
+            <li><a href="{% url 'cd_detail' cd.id %}"><span>{{cd.cd_name}}</span><span>{{cd.circle.circle_name}}</span><span>{{cd.release_on}}</span></a></li>{% endfor %}
         </ul>
-        {% include 'tohocd/pagination.html' %}
+        {% include 'parts/pagination.html' %}
     {% endif %}
     </div>
 {% endblock %}

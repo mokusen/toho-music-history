@@ -1,0 +1,17 @@
+{% load item_extra %}
+<div class="pagination">
+    <p>全{{max}}件中 {{display_min}}～{{display_max}}件を表示</p>
+    {% if data.paginator.num_pages != 1 %}
+    <ul>
+    {% if data.has_previous %}
+        <li><a href="?{% url_add request 1 %}">&laquo;</a></li>
+        <li><a href="?{% url_add request data.previous_page_number %}">&lt;</a></li>
+    {% endif %}
+        <li class="current"><a href="?{% url_add request data.number %}">{{data.number}}</a></li>
+    {% if data.has_next %}
+        <li><a href="?{% url_add request data.next_page_number %}">&gt;</a></li>
+        <li><a href="?{% url_add request data.paginator.num_pages %}">&raquo;</a></li>
+    {% endif %}
+    </ul>
+    {% endif %}
+</div>

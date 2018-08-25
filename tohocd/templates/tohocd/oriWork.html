@@ -1,4 +1,4 @@
-{% extends 'tohocd/base.html' %}
+{% extends 'parts/base.html' %}
 {% block content %}
     <div class="search-wrapper">
         <form action="{% url 'oriwork' %}" method="GET">
@@ -11,10 +11,10 @@
             <hr>{% for oriwork in data %}
             <li><span class="some">{{oriwork.original_work_name}}</span></li>
             <ul class="inner">{% for orisong in oriwork.original_song_set.all %}
-                <li><a href="{% url 'orisong_detail' %}?orisongId={{orisong.id}}">{{orisong.original_name}}</a></li>{% endfor %}
+                <li><a href="{% url 'orisong_detail' orisong.id %}">{{orisong.original_name}}</a></li>{% endfor %}
             </ul>{% endfor %}
         </ul>
-        {% include 'tohocd/pagination.html' %}
+        {% include 'parts/pagination.html' %}
     {% endif %}
     </div>
 {% endblock %}

@@ -1,8 +1,55 @@
 @charset "utf-8";
+/* index */
+/* アイコン変更 */
+.size {
+	font-size: 5em;
+}
+@media screen and (min-width: 768px) {
+	.size {
+		font-size: 10em;
+	}
+}
+/* アイコン変更ここまで */
+.main-wrapper {
+	background: #ffffff;
+	text-align: center;
+	width:100%;
+}
+.main-table {
+	table-layout: fixed;
+	margin:0 auto;
+	padding:10px;
+}
+.main-table td {
+	padding: 1rem;
+}
+.main-table a {
+	display:block;
+	padding:5px 10px;
+	text-align: center;
+	border-radius: 10px;
+	background-color:#062C54;
+	color: #EBF4F4;
+}
+@media screen and (min-width: 768px) {
+	.main-table {
+		padding:20px;
+	}
+	.main-table a {
+		padding:5px 10px;
+		border-radius: 10px;
+	}
+	.main-table a:hover {
+		background-color:#005B98;
+		color:#EBF4F4;
+	}
+}
+/* indexここまで */
 /* search */
 .search-wrapper {
 	margin:0 auto;
 } 
+/* searchここまで */
 /* nav */
 nav {
 	font-size: 0.78rem;
@@ -34,7 +81,7 @@ nav {
 	padding: 15px 20px;
 	text-decoration: none;
 	line-height: 100%;
-	color: #ffffff;
+	color: #EBF4F4;
 }
 @media screen and (min-width: 768px) {
 	.nav-container {
@@ -57,16 +104,23 @@ nav {
 		padding: 10px 0;
 		text-align: center;
 	}
+	.globalnav li a:hover {
+		background-color:#005B98;
+		color:#EBF4F4;
+	}
 }
 /* navここまで */
 /* cdList */
+.cdList li{
+	padding: 0 6px;
+}
 .cdList a{
-	font-size:20px;
 	display:block;
 	padding:15px 25px;
 	box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 	color:#000;
 	margin-bottom:10px;
+	border-radius: 5px;
 	transition:0.2s;
 }
 .cdList a:hover {
@@ -75,8 +129,10 @@ nav {
 }
 /* cdListここまで */
 /* someList */
+.someList li{
+	padding: 0 6px;
+}
 .someList .some {
-	font-size:20px;
 	display:block;
 	padding:15px 25px;
 	box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
@@ -107,8 +163,8 @@ nav {
 	border: 1px solid #dadada;
 }
 .cdInfo-table th {
-	background-color: #37b9d5;
-	color: #ffffff;
+	background-color: #0086CC;
+	color: #EBF4F4;
 	font-size: 1.2rem;
 	text-align: left;
 	white-space: nowrap;

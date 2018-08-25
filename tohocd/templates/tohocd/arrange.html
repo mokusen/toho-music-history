@@ -7,7 +7,7 @@
         </form>
     {% if max != 0 %}
         <ul class="someList">
-            <li><span><i class="fas fa-users"></i> 編曲者名</span></li>
+            <li><span><i class="fas fa-user"></i> 編曲者名</span></li>
             <hr>{% for arrange in data %}
             <li><a href="{% url 'arrange_detail' arrange.id %}"><span class="some">{{arrange.arrange_name}}</span></a></li>{% endfor %}
         </ul>

@@ -7,7 +7,7 @@
         </form>
     {% if max != 0 %}
         <ul class="someList">
-            <li><span><i class="fas fa-users"></i> 歌手名</span></li>
+            <li><span><i class="fas fa-user"></i> 歌手名</span></li>
             <hr>{% for vocal in data %}
             <li><a href="{% url 'vocal_detail' vocal.id %}"><span class="some">{{vocal.vocal_name}}</span></a></li>{% endfor %}
         </ul>

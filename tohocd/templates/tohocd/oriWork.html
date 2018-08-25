@@ -7,7 +7,7 @@
         </form>
     {% if max != 0 %}
         <ul class="someList accordion">
-            <li><span><i class="fas fa-users"></i> 原作名</span></li>
+            <li><span><i class="fas fa-box"></i> 原作名</span></li>
             <hr>{% for oriwork in data %}
             <li><span class="some">{{oriwork.original_work_name}}</span></li>
             <ul class="inner">{% for orisong in oriwork.original_song_set.all %}

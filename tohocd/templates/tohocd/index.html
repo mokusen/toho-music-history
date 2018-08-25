@@ -1,6 +1,24 @@
 {% extends 'parts/base.html' %}
 {% block content %}
     <div class="main-wrapper">
-
+        <table class="main-table">
+            <tr>
+                <td><i class="fas size fa-search"></i></td>
+                <td><a href="{% url 'search' %}">検索</a><br>
+                    <a href="{% url 'detail' %}">詳細検索</a></td>
+            </tr>
+            <tr>
+                <td><i class="fas size fa-info-circle"></i></td>
+                <td><a href="{% url 'cd' %}">CD情報</a><br>
+                    <a href="{% url 'circle' %}">サークル情報</a><br>
+                    <a href="{% url 'search' %}">曲情報</a><br>
+                    <a href="{% url 'vocal' %}">歌手情報</a><br>
+                    <a href="{% url 'lyric' %}">作詞情報</a><br>
+                    <a href="{% url 'arrange' %}">編曲情報</a><br>
+                    <a href="{% url 'orisong' %}">原曲情報</a><br>
+                    <a href="{% url 'oriwork' %}">原作情報</a>
+                </td>
+            </tr>
+        </table>
     </div>
 {% endblock %}

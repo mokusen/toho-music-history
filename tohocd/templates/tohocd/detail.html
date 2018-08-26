@@ -1,8 +1,20 @@
 {% extends 'parts/base.html' %}
 {% block content %}
-    <div>
+    <div class="search-wrapper">
         <form action="{% url 'detail' %}">
-            {{form}}<button type="submit"><i class="fas fa-search"></i></button>
+            <ul class="detail-list">
+                <li>{{form.cd}}</li>
+                <li>{{form.circle}}</li>
+                <li>{{form.song}}</li>
+                <li>{{form.vocal}}</li>
+                <li>{{form.lyric}}</li>
+                <li>{{form.arrange}}</li>
+                <li>{{form.ori_work}}</li>
+                <li>{{form.ori_song}}</li>
+                <li>{{form.release}}</li>
+            </ul>
+            <button class="detail-btn" type="submit"><i class="fas fa-search"></i><strong> 絞り込み検索</strong></button>
+            <p>CD、サークル、曲名、歌手、作詞、編曲、原曲、原作、発売日で組み合わせ検索することができます。</p>
         </form>
     {% if max != 0 %}
         {% include 'parts/cdAll_info.html' %}

@@ -1,20 +1,20 @@
 @charset "utf-8";
-html {
+html  * {
 	font-size: 15px;
+	box-sizing: border-box;
 }
 @media screen and (min-width: 768px) {
-	html {
+	html * {
 		font-size: 18px;
 	}
 }
-html * {
-	box-sizing: border-box;
-}
 body {
-	margin: 0;
+	margin: 0 auto;
 }
 ul {
 	-webkit-padding-start: 0%;
+	-webkit-margin-before: 0%;
+	-webkit-margin-after: 0%;
 	list-style-type: none;
 }
 a {
@@ -22,6 +22,20 @@ a {
 }
 td, th{
 	white-space: nowrap;
+}
+input {
+	-webkit-appearance: none;
+	border:1px solid #d2d2d2;
+	box-shadow: 1px 2px 1px 1px rgba(0 ,0, 0, 0.1) inset;
+	background:none;
+}
+p {
+	font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+	p {
+		font-size: 16px;
+	}
 }
 /* ========== Javascript用CSS ========== */
 /* ナビゲーションを最初は非表示。 */
@@ -51,4 +65,17 @@ td, th{
 }
 .accordion .inner {
 	display: none;
+	padding: 0 6px;
+}
+.accordion .inner li {
+	border: solid 1px black;
+}
+.accordion .inner li:first-child {
+	border-radius: 5px 5px 0 0;
+}
+.accordion .inner li:last-child {
+	border-radius: 0 0 5px 5px;
+}
+.accordion .inner li:only-child {
+	border-radius: 5px;
 }

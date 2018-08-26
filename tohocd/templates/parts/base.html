@@ -9,12 +9,14 @@
         <link href="{% static 'tohocd/css/style.css' %}" rel="stylesheet">
         <link href="{% static 'tohocd/css/header.css' %}" rel="stylesheet">
         <link href="{% static 'tohocd/css/main.css' %}" rel="stylesheet">
+        <link href="{% static 'tohocd/images/favicon.ico' %}" rel="shortcut icon" type="image/vnd.microsoft.icon">
+        <link href="{% static 'tohocd/images/app-touch-icon.png' %}" rel="apple-touch-icon">
         <title>東方音楽歴</title>
     </head>
     <body>
-        <header>
+        <header id="header">
             <div class="header-container">
-                <h1 class="site-ttl"><a href="{% url 'index' %}"><div class="header-logo"></div></a></h1>
+                <span class="site-ttl"><a href="{% url 'index' %}"><div class="header-logo"></div></a></span>
                 <div id="slidemenu-btn" class="header-navbtn"></div>
             </div>
         </header>
@@ -36,7 +38,11 @@
         </nav>
         {% block content %}
         {% endblock %}
+        <div id="footer">
+            Copyright (C) 2018 もくせん
+        </div>
     </body>
     <script src="{% static 'tohocd/scripts/jquery-3.1.1.min.js' %}"></script>
     <script src="{% static 'tohocd/scripts/custom.js' %}"></script>
+    <script src="{% static 'tohocd/scripts/footerFixed.js' %}"></script>
 </html>

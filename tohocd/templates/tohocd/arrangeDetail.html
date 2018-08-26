@@ -3,9 +3,9 @@
 {% block content %}
     <div class="search-wrapper">
         <form action="?{% url_add request 1 %}">
-            {{form}}<button type="submit"><i class="fas fa-search"></i></button>
+            {{form}}<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
         </form>
-        <p>{{arrange.get.arrange_name}}</p>
+        <caption>{{arrange.get.arrange_name}}</caption>
         {% include 'parts/cdAll_info.html' %}
         {% include 'parts/pagination.html' %}
     </div>

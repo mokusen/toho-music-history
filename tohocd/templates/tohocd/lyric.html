@@ -9,7 +9,7 @@
         <ul class="someList">
             <li><span><i class="fas fa-user"></i> 作詞者名</span></li>
             <hr>{% for lyric in data %}
-            <li><a href="{% url 'lyric_detail' lyric.id %}"><span class="some">{{lyric.lyric_name}}</span></a></li>{% endfor %}
+            <li><a href="{% url 'lyric_detail' lyric.id %}"><span class="some"><i class="fas fa-angle-right"></i> {{lyric.lyric_name}}</span></a></li>{% endfor %}
         </ul>
         {% include 'parts/pagination.html' %}
     {% endif %}

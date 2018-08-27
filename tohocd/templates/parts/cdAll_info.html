@@ -13,8 +13,8 @@
         </tr>
     {% for song in data %}
         <tr>
-            <td><a href="{{song.cd.circle.circle_url}}{{song.cd.cd_url}}">{{song.cd.cd_name}}</a></td>
-            <td><a href="{{song.cd.circle.circle_url}}">{{song.cd.circle.circle_name}}</a></td>
+            <td><a href="{{song.cd.circle.circle_url}}{{song.cd.cd_url}}"><i class="fas fa-external-link-alt"></i> {{song.cd.cd_name}}</a></td>
+            <td><a href="{{song.cd.circle.circle_url}}"><i class="fas fa-external-link-alt"></i> {{song.cd.circle.circle_name}}</a></td>
             <td>{{song.song_name}}</td>
             <td>{% for song_info in song.song_info_set.all %}{{song_info.vocal.vocal_name}}<br>{% endfor %}</td>
             <td>{% for song_info in song.song_info_set.all %}{{song_info.lyric.lyric_name}}<br>{% endfor %}</td>

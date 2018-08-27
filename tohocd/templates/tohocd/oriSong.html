@@ -9,7 +9,7 @@
         <ul class="someList">
             <li><span><i class="fas fa-music"></i> 原曲名</span></li>
             <hr>{% for orisong in data %}
-            <li><a href="{% url 'orisong_detail' orisong.id %}"><span class="some">{{orisong.original_name}}</span></a></li>{% endfor %}
+            <li><a href="{% url 'orisong_detail' orisong.id %}"><span class="some"><i class="fas fa-angle-right"></i> {{orisong.original_name}}</span></a></li>{% endfor %}
         </ul>
         {% include 'parts/pagination.html' %}
     {% endif %}

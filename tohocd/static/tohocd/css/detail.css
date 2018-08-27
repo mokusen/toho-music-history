@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* detail */
+.detail-list {
+	overflow: hidden;
+	padding: 6px 6px;
+}
+.detail-list li {
+	float: left;
+	width: 100%;
+}
+.detail-list li label{
+	display:block;
+	text-align: left;
+}
+.detail-input {
+	width:100%;
+	border-radius: 5px;
+	padding: 0 4px;
+	height: 30px;
+}
+.detail-btn {
+	width:70%;
+	height: 30px;
+	border-radius: 5px;
+	margin:0;
+	vertical-align: bottom;
+}
+@media screen and (min-width: 768px) {
+	.detail-list li {
+		width:25%;
+	}
+	.detail-input {
+		height: 40px;
+	}
+	.detail-btn {
+		height: 40px;
+	}
+}
+/* detailここまで */
+/* cdInfo-table */
+.cdInfo-table-title {
+	margin-top: 1em;
+	color:#3F4551;
+}
+.cdInfo-table-wrapper {
+	overflow-x: scroll;
+}
+@media screen and (min-width: 768px) {
+	.cdInfo-table-wrapper {
+		overflow-x: auto;
+	}
+}
+.cdInfo-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+.cdInfo-table th,
+.cdInfo-table td {
+	padding: 0.5rem;
+	border: 1px solid #dadada;
+	color:#3F4551;
+}
+.cdInfo-table th {
+	background-color: #0086CC;
+	color: #EBF4F4;
+	text-align: left;
+}
+.cdInfo-table a {
+	color:#3F4551;
+}
+/* cdInfo-tableここまで */

@@ -9,9 +9,9 @@
         <ul class="someList accordion">
             <li><span><i class="fas fa-users"></i> サークル名</span></li>
             <hr>{% for circle in data %}
-            <li><span class="some">{{circle.circle_name}}</span></li>
+            <li><span class="some"><i class="fas fa-chevron-down"></i> {{circle.circle_name}}</span></li>
             <ul class="inner">{% for cd in circle.cd_set.all %}
-                <li><a href="{% url 'cd_detail' cd.id %}">{{cd.cd_name}}</a></li>{% endfor %}
+                <li><a href="{% url 'cd_detail' cd.id %}"><i class="fas fa-angle-right"></i> {{cd.cd_name}}</a></li>{% endfor %}
             </ul>{% endfor %}
         </ul>
         {% include 'parts/pagination.html' %}

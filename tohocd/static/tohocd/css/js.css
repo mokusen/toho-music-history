@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* ========== Javascript用CSS ========== */
+/* ナビゲーションを最初は非表示。 */
+#js-slidemenu {
+	display: none;
+}
+/* パソコン向けではナビゲーションを常に表示 */
+@media screen and (min-width: 768px) {
+	#js-slidemenu {
+		display: block !important; 
+	}
+}
+/* ナビゲーションが開いたときに画面を暗くする処理のためのCSS */
+.js-slidemenu-effect {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.4;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+/* アコーディオンの設定 */
+.accordion {
+	text-align: center;
+}
+.accordion .inner {
+	display: none;
+    padding: 0 6px;
+    margin-bottom: 10px;
+}
+.accordion .inner li {
+    border: solid 1px #005B98;
+    padding: 10px;
+    margin-bottom: -1px;
+}
+.accordion .inner li:first-child {
+    border-radius: 5px 5px 0 0;
+}
+.accordion .inner li:last-child {
+	border-radius: 0 0 5px 5px;
+}
+.accordion .inner li:only-child {
+	border-radius: 5px;
+}
+.accordion .inner li a {
+    display: block;
+    color: #3F4551;
+}

@@ -31,6 +31,9 @@
 	background-color:#062C54;
 	color: #EBF4F4;
 }
+.main-table i{
+	color:#3F4551;
+}
 @media screen and (min-width: 768px) {
 	.main-table {
 		padding:20px;
@@ -51,7 +54,7 @@
 	text-align: center;
 } 
 .search-input {
-	margin: 10px 0 0 0;
+	margin-top: 10px;
 	padding: 0 4px;
 	width:70%;
 	height: 30px;
@@ -66,6 +69,7 @@
 }
 @media screen and (min-width: 768px) {
 	.search-input {
+		margin-top: 20px;
 		height: 40px;
 	}
 	.search-btn {
@@ -74,39 +78,6 @@
 	}
 }
 /* searchここまで */
-/* detail */
-.detail-list {
-	overflow: hidden;
-}
-.detail-list li {
-	float: left;
-	width: 50%;
-}
-.detail-input {
-	width:100%;
-	border-radius: 5px;
-	padding: 0 4px;
-	height: 30px;
-}
-.detail-btn {
-	width:70%;
-	height: 30px;
-	border-radius: 5px;
-	margin:0;
-	vertical-align: bottom;
-}
-@media screen and (min-width: 768px) {
-	.detail-list li {
-		width:25%;
-	}
-	.detail-input {
-		height: 40px;
-	}
-	.detail-btn {
-		height: 40px;
-	}
-}
-/* detailここまで */
 /* nav */
 nav {
 	font-size: 0.78rem;
@@ -136,7 +107,6 @@ nav {
 .globalnav li a {
 	display: block;
 	padding: 15px 20px;
-	text-decoration: none;
 	line-height: 100%;
 	color: #EBF4F4;
 }
@@ -170,6 +140,7 @@ nav {
 /* cdList */
 .cdList li{
 	padding: 0 6px;
+	color:#3F4551;
 }
 .cdList span {
 	display: inline-block;
@@ -180,7 +151,7 @@ nav {
 }
 .cdList a{
 	display:block;
-	padding:5px 5px 5px 5px;
+	padding:10px 10px;
 	box-shadow: 0px 3px 15px rgba(6,44,84,0.4);
 	color:#005B98;
 	margin-bottom:10px;
@@ -196,6 +167,8 @@ nav {
 /* someList */
 .someList li{
 	padding: 0 6px;
+	color:#3F4551;
+	padding-bottom:0px;
 }
 .someList .some {
 	display:block;
@@ -212,31 +185,6 @@ nav {
   transition:0.2s;
 }
 /* someListここまで */
-/* cdInfo-table */
-.cdInfo-table-wrapper {
-	overflow-x: scroll;
-}
-@media screen and (min-width: 768px) {
-	.cdInfo-table-wrapper {
-		overflow-x: auto;
-	}
-}
-.cdInfo-table {
-	border-collapse: collapse;
-	margin: 0 auto;
-}
-.cdInfo-table th,
-.cdInfo-table td {
-	padding: 1rem;
-	border: 1px solid #dadada;
-}
-.cdInfo-table th {
-	background-color: #0086CC;
-	color: #EBF4F4;
-	text-align: left;
-	white-space: nowrap;
-}
-/* cdInfo-tableここまで */
 /* ページング */ 
 .pagination {
 	overflow: hidden;
@@ -268,10 +216,17 @@ nav {
 .pagination li a {
 	display: block;
 	padding: 5px 20px;
-	text-decoration: none;
 	color: #3e5358;
 }
 .pagination li.current {
 	background: #f6d7b6;
 }
 /* ページングここまで */
+.pagetop {
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+}
+.pagetop a {
+	color:#005B98;
+}

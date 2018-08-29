@@ -104,8 +104,8 @@ def prepare_param(request_value):
     else:
         word = ""
         form = FindForm()
-    num = prepare_param_page(request_value)
-    return word, form, num
+    num, order_param = prepare_param_page(request_value)
+    return word, form, num, order_param
 
 def prepare_param_page(request_value):
     """
@@ -125,6 +125,10 @@ def prepare_param_page(request_value):
         num = int(request_value['page'])
     else:
         num = 1
-    return num
+    if 'sort' in request_value:
+        order_param = request_value['sort']
+    else:
+        order_param = ''
+    return num, order_param
 
         

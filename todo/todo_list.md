@@ -18,6 +18,8 @@
 | htmlの文字サイズ変更、統一 | 低 | 済 | 8/26 |
 | footerの追加 | 低 | 済 | 8/27 |
 | table-titleのfont-size調整 | 低 | 済 | 8/27 |
+| table-titleのfont調整 | 低 | 済 | 8/29 |
+| table-title(CD,サークル)の調整 | 低 | 済 | 8/29 |
 
 # 拡張要素
 | タスク | 実施 | 日付 |

@@ -9,10 +9,10 @@ def index(request):
 def search(request):
     if 'find' in request.GET:
         word = request.GET['find']
-        num = handleParam.prepare_param_page(request.GET)
+        num, order_param = handleParam.prepare_param_page(request.GET)
         form = FindForm(request.GET)
-        song = songService.get_songs_byOR(word)
-        params = handleParam.create_param(song, num, {'form': form})
+        song, sort_flag = songService.get_songs_byOR(word, order_param)
+        params = handleParam.create_param(song, num, {'form': form, 'sort_flag': sort_flag})
     else:
         form = FindForm()
         params = {"form":form, "max": 0}

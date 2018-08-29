@@ -40,6 +40,10 @@
 /* cdInfo-table */
 .cdInfo-table-title {
 	margin-top: 1em;
+	margin-bottom: 0.2em;
+	color:#3F4551;
+}
+.cdInfo-table-title a {
 	color:#3F4551;
 }
 .cdInfo-table-wrapper {

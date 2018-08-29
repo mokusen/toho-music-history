@@ -1,7 +1,10 @@
 {% extends 'parts/base.html' %}
 {% block content %}
     <div class="search-wrapper">
-        <div class="cdInfo-table-title"><span><a href="{{cd.get.circle.circle_url}}{{cd.get.cd_url}}"></a>{{cd.get.cd_name}}</span><span><a href="{{cd.get.circle.circle_url}}"></a>{{cd.get.circle.circle_name}}</span></div>
+        <div class="cdInfo-table-title">
+            <span><i class="fas fa-compact-disc"></i> CD名：<a href="{{cd.get.circle.circle_url}}{{cd.get.cd_url}}">{{cd.get.cd_name}} <i class="fas fa-external-link-alt"></i></a></span><br>
+            <span><i class="fas fa-users"></i> サークル名：<a href="{{cd.get.circle.circle_url}}">{{cd.get.circle.circle_name}} <i class="fas fa-external-link-alt"></i></a></span>
+        </div>
         <div class="cdInfo-table-wrapper">
             <table class="cdInfo-table">
                 <tr>

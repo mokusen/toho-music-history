@@ -5,7 +5,7 @@
         <form action="?{% url_add request 1 %}">
             {{form}}<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
         </form>
-        <div class="cdInfo-table-title"><i class="fas fa-user"></i> 作詞者：{{lyric.get.lyric_name}}</div>
+        <div class="cdInfo-table-title"><i class="fas fa-user"></i> 作詞者名：{{lyric.get.lyric_name}}</div>
         {% include 'parts/cdAll_info.html' %}
         {% include 'parts/pagination.html' %}
     </div>

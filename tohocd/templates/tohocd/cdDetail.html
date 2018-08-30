@@ -1,4 +1,5 @@
 {% extends 'parts/base.html' %}
+{% load item_extra %}
 {% block content %}
     <div class="search-wrapper">
         <div class="cdInfo-table-title">
@@ -8,13 +9,27 @@
         <div class="cdInfo-table-wrapper">
             <table class="cdInfo-table">
                 <tr>
-                    <th><i class="fas fa-music"></i> 曲名</th>
-                    <th><i class="fas fa-user"></i> 歌手</th>
-                    <th><i class="fas fa-user"></i> 作詞者</th>
-                    <th><i class="fas fa-user"></i> 編曲者</th>
-                    <th><i class="fas fa-music"></i> 原曲</th>
-                    <th><i class="fas fa-box"></i> 原作</th>
-                    <th><i class="far fa-calendar-alt"></i> 発売日</th>
+                    {% if sort_flag == 'song' %}<th><a href="?{% sort_add request 'song_d' %}"><i class="fas fa-music"></i> 曲名 <i class="fas fa-sort-up"></i></a></th>
+                    {% elif sort_flag == 'song_d' %}<th><a href="?{% sort_add request 'song' %}"><i class="fas fa-music"></i> 曲名 <i class="fas fa-sort-down"></i></a></th>
+                    {% else %}<th><a href="?{% sort_add request 'song' %}"><i class="fas fa-music"></i> 曲名 <i class="fas fa-sort"></i></a>{% endif %}
+                    {% if sort_flag == 'vocal' %}<th><a href="?{% sort_add request 'vocal_d' %}"><i class="fas fa-user"></i> 歌手 <i class="fas fa-sort-up"></i></a></th>
+                    {% elif sort_flag == 'vocal_d' %}<th><a href="?{% sort_add request 'vocal' %}"><i class="fas fa-user"></i> 歌手 <i class="fas fa-sort-down"></i></a></th>
+                    {% else %}<th><a href="?{% sort_add request 'vocal' %}"><i class="fas fa-user"></i> 歌手 <i class="fas fa-sort"></i></a>{% endif %}
+                    {% if sort_flag == 'lyric' %}<th><a href="?{% sort_add request 'lyric_d' %}"><i class="fas fa-user"></i> 作詞者 <i class="fas fa-sort-up"></i></a></th>
+                    {% elif sort_flag == 'lyric_d' %}<th><a href="?{% sort_add request 'lyric' %}"><i class="fas fa-user"></i> 作詞者 <i class="fas fa-sort-down"></i></a></th>
+                    {% else %}<th><a href="?{% sort_add request 'lyric' %}"><i class="fas fa-user"></i> 作詞者 <i class="fas fa-sort"></i></a>{% endif %}
+                    {% if sort_flag == 'arrange' %}<th><a href="?{% sort_add request 'arrange_d' %}"><i class="fas fa-user"></i> 編曲者 <i class="fas fa-sort-up"></i></a></th>
+                    {% elif sort_flag == 'arrange_d' %}<th><a href="?{% sort_add request 'arrange' %}"><i class="fas fa-user"></i> 編曲者 <i class="fas fa-sort-down"></i></a></th>
+                    {% else %}<th><a href="?{% sort_add request 'arrange' %}"><i class="fas fa-user"></i> 編曲者 <i class="fas fa-sort"></i></a>{% endif %}
+                    {% if sort_flag == 'ori_song' %}<th><a href="?{% sort_add request 'ori_song_d' %}"><i class="fas fa-music"></i> 原曲 <i class="fas fa-sort-up"></i></a></th>
+                    {% elif sort_flag == 'ori_song_d' %}<th><a href="?{% sort_add request 'ori_song' %}"><i class="fas fa-music"></i> 原曲 <i class="fas fa-sort-down"></i></a></th>
+                    {% else %}<th><a href="?{% sort_add request 'ori_song' %}"><i class="fas fa-music"></i> 原曲 <i class="fas fa-sort"></i></a>{% endif %}
+                    {% if sort_flag == 'ori_work' %}<th><a href="?{% sort_add request 'ori_work_d' %}"><i class="fas fa-box"></i> 原作 <i class="fas fa-sort-up"></i></a></th>
+                    {% elif sort_flag == 'ori_work_d' %}<th><a href="?{% sort_add request 'ori_work' %}"><i class="fas fa-box"></i> 原作 <i class="fas fa-sort-down"></i></a></th>
+                    {% else %}<th><a href="?{% sort_add request 'ori_work' %}"><i class="fas fa-box"></i> 原作 <i class="fas fa-sort"></i></a>{% endif %}
+                    {% if sort_flag == 'release' %}<th><a href="?{% sort_add request 'release_d' %}"><i class="far fa-calendar-alt"></i> 発売日 <i class="fas fa-sort-up"></i></a></th>
+                    {% elif sort_flag == 'release_d' %}<th><a href="?{% sort_add request 'release' %}"><i class="far fa-calendar-alt"></i> 発売日 <i class="fas fa-sort-down"></i></a></th>
+                    {% else %}<th><a href="?{% sort_add request 'release' %}"><i class="fas fa-calendar-alt"></i> 発売日 <i class="fas fa-sort"></i></a>{% endif %}
                 </tr>
             {% for song in data %}
                 <tr>

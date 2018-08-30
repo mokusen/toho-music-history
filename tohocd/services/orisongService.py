@@ -1,4 +1,5 @@
 from ..models import Original_song
+from django.db.models.functions import Lower
 
 def get_orisongs(word):
     """
@@ -14,7 +15,7 @@ def get_orisongs(word):
     orisong
         models.Original_songクラスを返す
     """
-    orisong = Original_song.objects.select_related().filter(original_name__contains=word).order_by('original_name')
+    orisong = Original_song.objects.select_related().filter(original_name__contains=word).order_by(Lower('original_name'))
     return orisong
 
 def get_orisong_byId(id):
@@ -31,5 +32,5 @@ def get_orisong_byId(id):
     orisong
         models.Original_songクラスを返す
     """
-    orisong = Original_song.objects.select_related().filter(id=id).order_by('original_name')
+    orisong = Original_song.objects.select_related().filter(id=id).order_by(Lower('original_name'))
     return orisong

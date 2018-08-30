@@ -1,4 +1,5 @@
 from ..models import Vocal_master
+from django.db.models.functions import Lower
 
 def get_vocals(word):
     """
@@ -14,7 +15,7 @@ def get_vocals(word):
     vocal
         models.Vocal_masterクラスを返す
     """
-    vocal = Vocal_master.objects.select_related().filter(vocal_name__contains=word).order_by('vocal_name')
+    vocal = Vocal_master.objects.select_related().filter(vocal_name__contains=word).order_by(Lower('vocal_name'))
     return vocal
 
 def get_vocal_byId(id):
@@ -31,5 +32,5 @@ def get_vocal_byId(id):
     vocal
         models.Vocal_masterクラスを返す
     """
-    vocal = Vocal_master.objects.select_related().filter(id=id).order_by('vocal_name')
+    vocal = Vocal_master.objects.select_related().filter(id=id).order_by(Lower('vocal_name'))
     return vocal

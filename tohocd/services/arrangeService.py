@@ -1,4 +1,5 @@
 from ..models import Arrange_master
+from django.db.models.functions import Lower
 
 def get_arranges(word):
     """
@@ -14,7 +15,7 @@ def get_arranges(word):
     arrange
         models.Arrange_masterクラスを返す
     """
-    arrange = Arrange_master.objects.select_related().filter(arrange_name__contains=word).order_by('arrange_name')
+    arrange = Arrange_master.objects.select_related().filter(arrange_name__contains=word).order_by(Lower('arrange_name'))
     return arrange
 
 def get_arrange_byId(id):
@@ -31,5 +32,5 @@ def get_arrange_byId(id):
     arrange
         models.Arrange_masterクラスを返す
     """
-    arrange = Arrange_master.objects.select_related().filter(id=id).order_by('arrange_name')
+    arrange = Arrange_master.objects.select_related().filter(id=id).order_by(Lower('arrange_name'))
     return arrange

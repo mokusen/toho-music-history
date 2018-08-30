@@ -1,4 +1,5 @@
 from ..models import Lyric_master
+from django.db.models.functions import Lower
 
 def get_lyrics(word):
     """
@@ -14,7 +15,7 @@ def get_lyrics(word):
     lyric
         models.Lyric_masterクラスを返す
     """
-    lyric = Lyric_master.objects.select_related().filter(lyric_name__contains=word).order_by('lyric_name')
+    lyric = Lyric_master.objects.select_related().filter(lyric_name__contains=word).order_by(Lower('lyric_name'))
     return lyric
 
 def get_lyric_byId(id):
@@ -31,5 +32,5 @@ def get_lyric_byId(id):
     lyric
         models.Lyric_masterクラスを返す
     """
-    lyric = Lyric_master.objects.select_related().filter(id=id).order_by('lyric_name')
+    lyric = Lyric_master.objects.select_related().filter(id=id).order_by(Lower('lyric_name'))
     return lyric

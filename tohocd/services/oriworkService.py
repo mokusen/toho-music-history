@@ -1,4 +1,5 @@
 from ..models import Original_work_master
+from django.db.models.functions import Lower
 
 def get_oriworks(word):
     """
@@ -14,7 +15,7 @@ def get_oriworks(word):
     oriwork
         models.Original_work_masterクラスを返す
     """
-    oriwork = Original_work_master.objects.select_related().filter(original_work_name__contains=word).order_by('original_work_name')
+    oriwork = Original_work_master.objects.select_related().filter(original_work_name__contains=word).order_by(Lower('original_work_name'))
     return oriwork
 
 def get_oriwork_byId(id):
@@ -31,5 +32,5 @@ def get_oriwork_byId(id):
     oriwork
         models.Original_work_masterクラスを返す
     """
-    oriwork = Original_work_master.objects.select_related().filter(id=id).order_by('original_work_name')
+    oriwork = Original_work_master.objects.select_related().filter(id=id).order_by(Lower('original_work_name'))
     return oriwork

@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator
 from ..forms import FindForm
+import math
 def create_param(model, num, any_dict):
     """
     画面へ渡すParamを設定する
@@ -20,8 +21,14 @@ def create_param(model, num, any_dict):
         設定したParamを返す
     """
     max = len(model)
+    # page-num varidation
+    num_max = math.ceil(max/25)
+    if num > num_max:
+        num = num_max
+    elif num < 1:
+        num = 1
     display_min = 25 * (num - 1)
-    display_max = 25 * num if num < max / 25 else max
+    display_max = 25 * num if num < num_max else max
     page = Paginator(model, 25)
     msg = "" if max != 0 else "検索した情報は存在しませんでした"
     param = {
@@ -104,8 +111,8 @@ def prepare_param(request_value):
     else:
         word = ""
         form = FindForm()
-    num, order_param = prepare_param_page(request_value)
-    return word, form, num, order_param
+    num = prepare_param_page(request_value)
+    return word, form, num
 
 def prepare_param_page(request_value):
     """
@@ -122,13 +129,54 @@ def prepare_param_page(request_value):
     """
 
     if 'page' in request_value:
-        num = int(request_value['page'])
+        # page-param varidation
+        page_type = type(request_value['page'])
+        if page_type == float:
+            num = int(float(request_value['page']))
+        elif page_type == int:
+            num = int(request_value['page'])
+        else:
+            num = 1
     else:
         num = 1
+    return num
+
+def prepare_param_order(request_value):
+    """
+    request.GETからorder_byのparamを取得する
+    Parameters
+    ----------
+    request_value : request.GET
+        URLのParam
+    
+    Returns
+    -------
+    order_param : order_by param
+        order_byを行うparam
+    """
+
     if 'sort' in request_value:
         order_param = request_value['sort']
     else:
         order_param = ''
-    return num, order_param
+    return order_param
 
-        
+def prepare_param_page_order(request_value):
+    """
+    request.GETからページナンバー、order_byのparamを取得する
+    Parameters
+    ----------
+    request_value : request.GET
+        URLのParam
+    
+    Returns
+    -------
+    num : page num
+        現在のページナンバー
+    order_param : order_by param
+        order_byを行うparam
+    """
+
+    num = prepare_param_page(request_value)
+    order_param = prepare_param_order(request_value)
+    return num, order_param

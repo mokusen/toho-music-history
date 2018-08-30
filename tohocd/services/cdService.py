@@ -1,5 +1,6 @@
 from ..models import Cd
 from django.db.models import Q
+from django.db.models.functions import Lower
 
 def get_cds(word):
     """
@@ -19,7 +20,7 @@ def get_cds(word):
         Q(cd_name__contains=word) |
         Q(circle__circle_name__contains=word) |
         Q(release_on__contains=word)
-    ).order_by('cd_name')
+    ).order_by(Lower('cd_name'))
     return cd
 
 def get_cd_byId(id):
@@ -36,5 +37,5 @@ def get_cd_byId(id):
     cd
         models.Cdクラスを返す
     """
-    cd = Cd.objects.select_related().filter(id=id).order_by('cd_name')
+    cd = Cd.objects.select_related().filter(id=id).order_by(Lower('cd_name'))
     return cd

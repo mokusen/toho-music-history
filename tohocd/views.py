@@ -9,10 +9,10 @@ def index(request):
 def search(request):
     if 'find' in request.GET:
         word = request.GET['find']
-        num, order_param = handleParam.prepare_param_page(request.GET)
+        num, order_param = handleParam.prepare_param_page_order(request.GET)
         form = FindForm(request.GET)
-        song, sort_flag = songService.get_songs_byOR(word, order_param)
-        params = handleParam.create_param(song, num, {'form': form, 'sort_flag': sort_flag})
+        song = songService.get_songs_byOR(word, order_param)
+        params = handleParam.create_param(song, num, {'form': form, 'sort_flag': order_param})
     else:
         form = FindForm()
         params = {"form":form, "max": 0}
@@ -20,11 +20,12 @@ def search(request):
 
 def detail(request):
     if len(request.GET) != 0:
+        order_param = handleParam.prepare_param_order(request.GET)
         word_dict = handleParam.check_param(request.GET)
         num = handleParam.prepare_param_page(request.GET)
         form = DetailForm(word_dict)
-        song = songService.get_songs_byAND(word_dict)
-        params = handleParam.create_param(song, num, {'form': form})
+        song = songService.get_songs_byAND(word_dict, order_param)
+        params = handleParam.create_param(song, num, {'form': form, 'sort_flag': order_param})
     else:
         form = DetailForm()
         params = {"form":form, "max": 0}
@@ -40,9 +41,10 @@ def cd_redirect(request):
     return redirect('/tohocd/cd')
 
 def cd_detail(request, id):
+    order_param = handleParam.prepare_param_order(request.GET)
     cd = cdService.get_cd_byId(id)
-    data = songService.get_song_byCd(id)
-    params = {'cd': cd, 'data':data}
+    data = songService.get_song_byCd(id, order_param)
+    params = {'cd': cd, 'data':data, 'sort_flag': order_param}
     return render(request, 'tohocd/cdDetail.html', params)
 
 def circle(request):
@@ -61,10 +63,11 @@ def vocal_redirect(request):
     return redirect('/tohocd/vocal')
 
 def vocal_detail(request, id):
+    order_param = handleParam.prepare_param_order(request.GET)
     word, form, num = handleParam.prepare_param(request.GET)
     vocal = vocalService.get_vocal_byId(id)
-    data = songService.get_song_byVocal(id, word)
-    params = handleParam.create_param(data, num, {'vocal': vocal, 'form': form})
+    data = songService.get_song_byVocal(id, word, order_param)
+    params = handleParam.create_param(data, num, {'vocal': vocal, 'form': form, 'sort_flag': order_param})
     return render(request, 'tohocd/vocalDetail.html', params)
 
 def lyric(request):
@@ -77,10 +80,11 @@ def lyric_redirect(request):
     return redirect('/tohocd/lyric')
 
 def lyric_detail(request, id):
-    word, form, num = handleParam.prepare_param(request.GET)
+    order_param = handleParam.prepare_param_order(request.GET)
+    word, form, num = handleParam.prepare_param_(request.GET)
     lyric = lyricService.get_lyric_byId(id)
-    data = songService.get_song_byLyric(id, word)
-    params = handleParam.create_param(data, num, {'lyric': lyric, 'form': form})
+    data = songService.get_song_byLyric(id, word, order_param)
+    params = handleParam.create_param(data, num, {'lyric': lyric, 'form': form, 'sort_flag': order_param})
     return render(request, 'tohocd/lyricDetail.html', params)
 
 def arrange(request):
@@ -93,10 +97,11 @@ def arrange_redirect(request):
     return redirect('/tohocd/arrange')
 
 def arrange_detail(request, id):
+    order_param = handleParam.prepare_param_order(request.GET)
     word, form, num = handleParam.prepare_param(request.GET)
     arrange = arrangeService.get_arrange_byId(id)
-    data = songService.get_song_byArrange(id, word)
-    params = handleParam.create_param(data, num, {'arrange': arrange, 'form': form})
+    data = songService.get_song_byArrange(id, word, order_param)
+    params = handleParam.create_param(data, num, {'arrange': arrange, 'form': form, 'sort_flag': order_param})
     return render(request, 'tohocd/arrangeDetail.html', params)
 
 def orisong(request):
@@ -109,10 +114,11 @@ def orisong_redirect(request):
     return redirect('/tohocd/orisong')
 
 def orisong_detail(request, id):
+    order_param = handleParam.prepare_param_order(request.GET)
     word, form, num = handleParam.prepare_param(request.GET)
     orisong = orisongService.get_orisong_byId(id)
-    data = songService.get_song_byOrisong(id, word)
-    params = handleParam.create_param(data, num, {'orisong': orisong, 'form': form})
+    data = songService.get_song_byOrisong(id, word, order_param)
+    params = handleParam.create_param(data, num, {'orisong': orisong, 'form': form, 'sort_flag': order_param})
     return render(request, 'tohocd/oriSongDetail.html', params)
 
 def oriwork(request):

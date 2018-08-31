@@ -1,0 +1,11 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+        {% block error %}<link href="{% static 'tohocd/css/error.css' %}" rel="stylesheet">
+        <title>お探しのページが見つかりません | 東方音楽歴</title>{% endblock %}
+{% block content %}
+    <div class="error-wrapper">
+        <p class="error-text">404 Page Not Found<br>指定のページは存在しません。</p>
+        <p class="error-sub">リンクに問題があるか、製作者がミスってる可能性があります。。。</p><br>
+        <a class="error-top" href="{% url 'index' %}">TOPページへ</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+@charset "utf-8";
+.error-wrapper {
+    text-align: center;
+    margin:20px auto;
+    color:#3F4551;
+}
+.error-text {
+    font-size:18px;
+}
+.error-sub {
+    font-size:16px;
+}
+.error-top {
+    font-size:16px;
+    color:#0086CC;
+}
+@media screen and (min-width: 768px) {
+	.error-text {
+		font-size: 24px;
+    }
+    .error-sub {
+        font-size:20px;
+    }
+    .error-top {
+        font-size:20px;
+    }
+    .error-top:hover {
+        text-decoration: underline;
+    }
+}

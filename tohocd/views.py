@@ -81,7 +81,7 @@ def lyric_redirect(request):
 
 def lyric_detail(request, id):
     order_param = handleParam.prepare_param_order(request.GET)
-    word, form, num = handleParam.prepare_param_(request.GET)
+    word, form, num = handleParam.prepare_param(request.GET)
     lyric = lyricService.get_lyric_byId(id)
     data = songService.get_song_byLyric(id, word, order_param)
     params = handleParam.create_param(data, num, {'lyric': lyric, 'form': form, 'sort_flag': order_param})

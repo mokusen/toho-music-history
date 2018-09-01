@@ -23,6 +23,8 @@ def create_param(model, num, any_dict):
     max = len(model)
     # page-num varidation
     num_max = math.ceil(max/25)
+    print(f"num: {num}")
+    print(f"num_max: {num_max}")
     if num > num_max:
         num = num_max
     elif num < 1:
@@ -39,6 +41,7 @@ def create_param(model, num, any_dict):
         'display_max': display_max,
     }
     param.update(any_dict)
+    print(f"end_num: {num}")
     return param
 
 def __get_diff_param(request_value):
@@ -130,13 +133,22 @@ def prepare_param_page(request_value):
 
     if 'page' in request_value:
         # page-param varidation
-        page_type = type(request_value['page'])
-        if page_type == float:
-            num = int(float(request_value['page']))
-        elif page_type == int:
-            num = int(request_value['page'])
-        else:
-            num = 1
+        # page_type = type(request_value['page'])
+        # print(f"num_check: {page_type}")
+        # print(f"page_num: {request_value['page']}")
+        # if page_type == float:
+        #     num = int(float(request_value['page']))
+        # elif page_type == int:
+        #     num = int(request_value['page'])
+        # else:
+        #     num = 1
+        try:
+            num = num = int(request_value['page'])
+        except:
+            try:
+                num = int(float(request_value['page']))
+            except:
+                num = 1
     else:
         num = 1
     return num

@@ -1,0 +1,15 @@
+@charset "utf-8";
+.about-wrapper {
+    margin:0 10px;
+}
+.about-wrapper a{
+    color:#0086CC;
+}
+@media screen and (min-width: 768px) {
+    .about-wrapper {
+        margin:0 100px;
+    }
+    .about-wrapper a:hover {
+        text-decoration: underline;
+    }
+}

@@ -6,6 +6,9 @@ from .utils import handleParam
 def index(request):
     return render(request, 'tohocd/index.html')
 
+def about(request):
+    return render(request, 'tohocd/about.html')
+
 def search(request):
     if 'find' in request.GET:
         word = request.GET['find']

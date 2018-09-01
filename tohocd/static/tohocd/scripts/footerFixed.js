@@ -29,8 +29,11 @@ new function(){
 		}
 		if(ft+fh<wh){
 			document.getElementById(footerId).style.position = "relative";
-			document.getElementById(footerId).style.top = (wh-fh-ft-1)+"px";
+			// 改変
+			document.getElementById(footerId).style.top = (wh-fh-ft-10)+"px";
 		}
+		// 改変
+		document.getElementById(footerId).style.marginBottom = 10 + "px";
 	}
 	
 	//文字サイズ

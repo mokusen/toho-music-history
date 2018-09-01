@@ -6,7 +6,11 @@
             {{form}}<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
         </form>
         <div class="cdInfo-table-title"><i class="fas fa-user"></i> 編曲者名：{{arrange.get.arrange_name}}</div>
+    {% if max != 0 %}
         {% include 'parts/cdAll_info.html' %}
         {% include 'parts/pagination.html' %}
+    {% else %}
+        <p>{{msg}}</p>
+    {% endif %}
     </div>
 {% endblock %}

@@ -12,6 +12,8 @@
             <li><a href="{% url 'vocal_detail' vocal.id %}"><span class="some"><i class="fas fa-angle-right"></i> {{vocal.vocal_name}}</span></a></li>{% endfor %}
         </ul>
         {% include 'parts/pagination.html' %}
+    {% else %}
+        <p>{{msg}}</p>
     {% endif %}
     </div>
 {% endblock %}

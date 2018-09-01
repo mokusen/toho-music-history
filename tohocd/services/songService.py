@@ -38,7 +38,7 @@ def __check_param(param):
     if param in param_dict:
         order_param = Lower(param_dict[param])
     else:
-        order_param = Lower("pk")
+        order_param = "pk"
     return order_param
 
 def __reverse(song, param, order_param):
@@ -58,7 +58,7 @@ def __reverse(song, param, order_param):
     song : models.Song.reverse()
     """
 
-    if order_param != Lower("pk") and "_d" in param:
+    if order_param != "pk" and "_d" in param:
         song = song.reverse()
     return song
 

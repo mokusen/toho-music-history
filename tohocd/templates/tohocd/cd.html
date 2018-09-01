@@ -12,6 +12,8 @@
             <li><a href="{% url 'cd_detail' cd.id %}"><span>{{cd.cd_name}}</span><span>{{cd.circle.circle_name}}</span><span>{{cd.release_on}}</span></a></li>{% endfor %}
         </ul>
         {% include 'parts/pagination.html' %}
+    {% else %}
+        <p>{{msg}}</p>
     {% endif %}
     </div>
 {% endblock %}

@@ -64,8 +64,13 @@
 	width: 30px;
 	height: 30px;
 	border-radius: 0 5px 5px 0;
-	margin:0;
+	margin:0 0 0 -1px;
+	padding:0;
 	vertical-align: bottom;
+	background-color: #DFF2FC;
+}
+.search-btn i{
+	text-align: center;
 }
 @media screen and (min-width: 768px) {
 	.search-input {
@@ -78,65 +83,6 @@
 	}
 }
 /* searchここまで */
-/* nav */
-nav {
-	font-size: 0.78rem;
-	background: #062C54;
-}
-@media screen and (min-width: 768px) {
-	nav {
-		font-size: 1rem;
-	}
-}
-.nav-container {
-	position: absolute;
-	top: 33px;
-	right: 0;
-	z-index: 20;
-	margin: 0;
-	padding: 0;
-	width: 200px;
-	background: #062C54;
-	box-shadow: 0px 5px 5px  rgba(0,0,0,0.4);
-}
-.globalnav {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.globalnav li a {
-	display: block;
-	padding: 15px 20px;
-	line-height: 100%;
-	color: #EBF4F4;
-}
-@media screen and (min-width: 768px) {
-	.nav-container {
-		position: relative;
-		top: 0;
-		left: 0;
-		padding: 0 20px 0 20px;
-		width: 100%;
-		background: none;
-		box-shadow: none;
-	}
-	.globalnav {
-		overflow: hidden;
-	}
-	.globalnav li {
-		float: left;
-		width: 20%;
-	}
-	.globalnav li a {
-		padding: 10px 0;
-		text-align: center;
-	}
-	.globalnav li a:hover {
-		background-color:#005B98;
-		color:#EBF4F4;
-	}
-}
-/* navここまで */
 /* cdList */
 .cdList li{
 	padding: 0 6px;

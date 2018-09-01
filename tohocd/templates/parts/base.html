@@ -18,7 +18,7 @@
     <body>
         <header id="header">
             <div class="header-container">
-                <span class="site-ttl"><a href="{% url 'index' %}"><div class="header-logo"></div></a></span>
+                <div class="site-ttl"><a href="{% url 'index' %}"><div class="header-logo"></div></a></div>
                 <div id="slidemenu-btn" class="header-navbtn"></div>
             </div>
         </header>
@@ -41,7 +41,9 @@
         {% block content %}
         {% endblock %}
         <div id="footer">
-            Copyright (C) 2018 もくせん
+            <hr>
+            <span>Copyright (C) 2018 もくせん</span>
+            <a href="{% url 'about' %}">東方音楽歴とは</a>
         </div>
         <p class="pagetop"><a href="#header"><i class="far fa-3x fa-arrow-alt-circle-up"></i></a></p>
     </body>

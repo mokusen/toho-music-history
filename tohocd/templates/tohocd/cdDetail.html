@@ -1,10 +1,17 @@
 {% extends 'parts/base.html' %}
 {% load item_extra %}
 {% block content %}
+    <div class="bread-wrapper">
+        <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}"><i class="fas bread-size fa-home"></i> Home</a></li>
+            <li><a href="{% url 'cd' %}"><i class="fas bread-size fa-info-circle"></i> CD情報</a></li>
+            <li><i class="fas bread-size fa-info-circle"></i> {{cd.get.cd_name}}</li>
+        </ul>
+    </div>
     <div class="search-wrapper">
         <div class="cdInfo-table-title">
-            <span><i class="fas fa-compact-disc"></i> CD名：<a href="{{cd.get.circle.circle_url}}{{cd.get.cd_url}}">{{cd.get.cd_name}} <i class="fas fa-external-link-alt"></i></a></span><br>
-            <span><i class="fas fa-users"></i> サークル名：<a href="{{cd.get.circle.circle_url}}">{{cd.get.circle.circle_name}} <i class="fas fa-external-link-alt"></i></a></span>
+            <span><i class="fas fa-compact-disc"></i> CD名：<a href="{{cd.get.circle.circle_url}}{{cd.get.cd_url}}", rel="nofollow">{{cd.get.cd_name}} <i class="fas fa-external-link-alt"></i></a></span><br>
+            <span><i class="fas fa-users"></i> サークル名：<a href="{{cd.get.circle.circle_url}}", rel="nofollow">{{cd.get.circle.circle_name}} <i class="fas fa-external-link-alt"></i></a></span>
         </div>
         <div class="cdInfo-table-wrapper">
             <table class="cdInfo-table">

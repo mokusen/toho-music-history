@@ -1,5 +1,11 @@
 {% extends 'parts/base.html' %}
 {% block content %}
+    <div class="bread-wrapper">
+        <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}"><i class="fas bread-size fa-home"></i> Home</a></li>
+            <li><i class="fas bread-size fa-search"></i> 詳細検索</li>
+        </ul>
+    </div>
     <div class="search-wrapper">
         <div class="detail-wrapper">
             <form action="{% url 'detail' %}">

@@ -33,6 +33,7 @@
 	padding: 0;
 	vertical-align: bottom;
 	background-color: #DFF2FC;
+	color: #005B98;
 }
 @media screen and (min-width: 768px) {
 	.detail-list li {

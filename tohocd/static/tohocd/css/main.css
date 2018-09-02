@@ -1,4 +1,48 @@
 @charset "utf-8";
+/* パンくず */
+.bread-wrapper {
+	margin:0 10px;
+}
+.breadcrumb {
+	list-style: none;
+}
+.bread-size{
+	font-size: 0.6em;
+}
+.breadcrumb a{
+	color:#0086CC;
+	font-size: 0.6em;
+}
+.breadcrumb li {
+	display: inline-block;
+	font-size: 0.6em;
+	color: #3F4551;
+}
+.breadcrumb li::after{
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: "\f0da";
+	padding: 0 5px;
+}
+.breadcrumb li:last-child::after {
+	content: none;
+}
+@media screen and (min-width: 768px) {
+	.bread-wrapper {
+		margin: 10px 0 -10px 20px;
+	}
+	.breadcrumb a{
+		font-size: 1em;
+	}
+	.breadcrumb li {
+		font-size: 1em;
+	}
+	.bread-size{
+		font-size: 1em;
+	}
+
+}
+/* パンくずここまで */
 /* index */
 /* アイコン変更 */
 .size {
@@ -68,9 +112,7 @@
 	padding:0;
 	vertical-align: bottom;
 	background-color: #DFF2FC;
-}
-.search-btn i{
-	text-align: center;
+	color: #005B98;
 }
 @media screen and (min-width: 768px) {
 	.search-input {
@@ -168,6 +210,7 @@
 	background: #f6d7b6;
 }
 /* ページングここまで */
+/* pagetop(やじるし) */
 .pagetop {
 	position: fixed;
 	right: 10px;
@@ -176,3 +219,4 @@
 .pagetop a {
 	color:#005B98;
 }
+/* pagetopここまで */

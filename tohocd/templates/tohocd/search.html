@@ -1,5 +1,11 @@
 {% extends 'parts/base.html' %}
 {% block content %}
+    <div class="bread-wrapper">
+        <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}"><i class="fas bread-size fa-home"></i> Home</a></li>
+            <li><i class="fas bread-size fa-search"></i> 検索</li>
+        </ul>
+    </div>
     <div class="search-wrapper">
         <form action="{% url 'search' %}" method="GET">
             {% for field in form %}{{field}}{% endfor %}<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>

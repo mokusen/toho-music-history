@@ -1,6 +1,13 @@
 {% extends 'parts/base.html' %}
 {% load item_extra %}
 {% block content %}
+    <div class="bread-wrapper">
+        <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}"><i class="fas bread-size fa-home"></i> Home</a></li>
+            <li><a href="{% url 'vocal' %}"><i class="fas bread-size fa-info-circle"></i> 歌手情報</a></li>
+            <li><i class="fas bread-size fa-user"></i> {{vocal.get.vocal_name}}</li>
+        </ul>
+    </div>
     <div class="search-wrapper">
         <form action="?{% url_add request 1 %}" method="get">
             {{form}}<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>

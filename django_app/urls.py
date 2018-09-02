@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_title='東方音楽歴'
+admin.site.site_header='東方音楽歴管理サイト'
+admin.site.index_title='メニュー'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tohocd/', include('tohocd.urls')),
+    path('', include('tohocd.urls')),
 ]

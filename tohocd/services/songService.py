@@ -36,7 +36,10 @@ def __check_param(param):
         "ori_work_d": "original_info__original_song__original_work__original_work_name",
     }
     if param in param_dict:
-        order_param = Lower(param_dict[param])
+        if "release" in param:
+            order_param = param_dict[param]
+        else:
+            order_param = Lower(param_dict[param])
     else:
         order_param = "pk"
     return order_param

@@ -23,6 +23,8 @@ SECRET_KEY = 'sp*@ix4ur2avdpe0su==m%jnku^r5a@_92&8u&+=6lg$p*+0eo'
 
 ALLOWED_HOSTS = ["*"]
 
+INTERNAL_IPS  = ['127.0.0.1']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -32,7 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tohocd'
+    'debug_toolbar',
+    'tohocd',
 ]
 
 MIDDLEWARE = [
@@ -44,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'django_app.urls'
@@ -96,7 +100,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/

@@ -18,8 +18,8 @@
         <!-- 共有OGP -->
         <meta property="og:title" content="東方音楽歴">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="">
-        <meta property="og:image" content="">
+        <meta property="og:url" content="{{request.build_absolute_uri}}">
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'tohocd/images/ogp.jpg' %}">
         <meta property="og:site_name" content="東方音楽歴">
         <meta property="og:description" content="東方音楽歴とは、東方Projectの同人音楽のデータベースサイトです。CD、サークル、曲名、歌手、作詞者、編曲者、原曲、原作、発売日で検索することが出来ます。">
         <!-- TwitterOGP -->

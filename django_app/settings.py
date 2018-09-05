@@ -23,8 +23,6 @@ SECRET_KEY = 'sp*@ix4ur2avdpe0su==m%jnku^r5a@_92&8u&+=6lg$p*+0eo'
 
 ALLOWED_HOSTS = ["*"]
 
-INTERNAL_IPS  = ['127.0.0.1']
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -34,10 +32,33 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
     'tohocd',
 ]
 
+# Support for Https
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Support for proxy
+from django.utils.deprecation import MiddlewareMixin
+class MultipleProxyMiddleware(MiddlewareMixin):
+    FORWARDED_FOR_FIELDS = [
+        'HTTP_X_FORWARDED_FOR',
+        'HTTP_X_FORWARDED_HOST',
+        'HTTP_X_FORWARDED_SERVER',
+    ]
+
+    def process_request(self, request):
+        """
+        Rewrites the proxy headers so that only the most
+        recent proxy is used.
+        """
+        for field in self.FORWARDED_FOR_FIELDS:
+            if field in request.META:
+                if ',' in request.META[field]:
+                    parts = request.META[field].split(',')
+                    request.META[field] = parts[-1].strip()
+                    
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -47,7 +68,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'django_app.urls'

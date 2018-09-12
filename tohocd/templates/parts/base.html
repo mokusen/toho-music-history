@@ -13,7 +13,7 @@
         <link href="{% static 'tohocd/images/favicon.ico' %}" rel="shortcut icon" type="image/vnd.microsoft.icon">
         <link href="{% static 'tohocd/images/app-touch-icon.png' %}" rel="apple-touch-icon">
         {% block css %}{% endblock %}
-        <title>東方音楽歴</title>
+        <title>{% block addtitle %}{% endblock %}東方音楽歴</title>
         <meta name="description" content="東方音楽歴とは、東方Projectの同人音楽のデータベースサイトです。CD、サークル、曲名、歌手、作詞者、編曲者、原曲、原作、発売日で検索することが出来ます。" />
         <!-- 共有OGP -->
         <meta property="og:title" content="東方音楽歴">

@@ -1,9 +1,16 @@
+### Django ###
 __pycache__
-staticfiles
-local_settings.py
+static
 db.sqlite3
 *.py[co]
+local_settings.py
 *.csv
+
+### Notes ###
 dbAccess
 spec
 todo
+start.ps1
+
+### VsCode ###
+.vscode

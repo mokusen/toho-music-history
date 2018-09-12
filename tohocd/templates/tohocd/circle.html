@@ -16,8 +16,8 @@
         <ul class="someList accordion">
             <li><span><i class="fas fa-users"></i> サークル名</span></li>
             <hr>{% for circle in data %}
-            <li><span class="some"><i class="fas fa-chevron-down"></i> {{circle.circle_name}}</span></li>
-            <ul class="inner">{% for cd in circle.cd_set.all %}
+            <li><div class="some"><span><i class="fas fa-chevron-down"></i> {{circle.circle_name}}</span><span class="some-number">{{circle.cd_set.all.count}}</span></div></li>
+            <ul class="inner">{% for cd in circle.cd_set.all|dictsort:"cd_name" %}
                 <li><a href="{% url 'cd_detail' cd.id %}"><i class="fas fa-angle-right"></i> {{cd.cd_name}}</a></li>{% endfor %}
             </ul>{% endfor %}
         </ul>

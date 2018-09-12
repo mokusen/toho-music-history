@@ -17,7 +17,7 @@
             <li><span><i class="fas fa-box"></i> 原作名</span></li>
             <hr>{% for oriwork in data %}
             <li><span class="some"><i class="fas fa-chevron-down"></i> {{oriwork.original_work_name}}</span></li>
-            <ul class="inner">{% for orisong in oriwork.original_song_set.all %}
+            <ul class="inner">{% for orisong in oriwork.original_song_set.all|dictsort:"original_name" %}
                 <li><a href="{% url 'orisong_detail' orisong.id %}"><i class="fas fa-angle-right"></i> {{orisong.original_name}}</a></li>{% endfor %}
             </ul>{% endfor %}
         </ul>

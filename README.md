@@ -50,7 +50,7 @@ Initial information is not included in DB.
 This Application is released under the MIT License, see LICENSE.
 ## Bug
 1. In the info page, the display number and the actual number are different
-##　To be currect
+## To be currect
 | bug-number | priority |
 | :--- | :---: |
 | 1 | Low |

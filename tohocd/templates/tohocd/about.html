@@ -1,6 +1,7 @@
 {% extends 'parts/base.html' %}
 {% load static %}
 {% block css %}<link href="{% static 'tohocd/css/about.css' %}" rel="stylesheet">{% endblock %}
+{% block addtitle %}東方音楽歴とは | {% endblock %}
 {% block content %}
     <div class="bread-wrapper">
         <ul class="breadcrumb">
@@ -12,12 +13,13 @@
         <h2>東方音楽歴とは</h2>
         <hr>
         <p>東方Projectの同人音楽のデータベースサイトです。</p>
-        <p>もくせんが個人で開発したWeb(趣味)サイトとなっており、非公式です。</p>
+        <p>もくせんが個人で開発したWebサイトとなっており、非公式です。</p>
+        <p>また、趣味で制作している関係上、曲を網羅することはございませんのでご了承下さい。</p>
         <h2>サイト情報</h2>
         <hr>
         <p>サイト名：東方音楽歴</p>
         <p>サイト名(ルビ)：とうほうおんがくれき</p>
-        <p>バージョン：1.0.0</p>
+        <p>バージョン：1.0.1</p>
         <p>最新版リリース：2018/09/02</p>
         <h2>プロフィール</h2>
         <hr>
@@ -26,7 +28,7 @@
         <p>Twitter：<a href="//twitter.com/mutipara", rel="nofollow">@mutipara</a></p>
         <p>※ 基本的に返信は週末に行いますので、お時間を頂きます。ご了承下さい。</p>
         <h2>リンクについて</h2>
-        <p>当サイトはリンクフリーです。ご自由にご使用下さい。</p>
         <hr>
+        <p>当サイトはリンクフリーです。ご自由にご使用下さい。</p>
     </div>
 {% endblock %}

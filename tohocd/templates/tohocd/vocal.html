@@ -16,7 +16,7 @@
         <ul class="someList">
             <li><span><i class="fas fa-user"></i> 歌手名</span></li>
             <hr>{% for vocal in data %}
-            <li><a href="{% url 'vocal_detail' vocal.id %}"><span class="some"><i class="fas fa-angle-right"></i> {{vocal.vocal_name}}</span></a></li>{% endfor %}
+            <li><a href="{% url 'vocal_detail' vocal.id %}"><div class="some"><span><i class="fas fa-angle-right"></i> {{vocal.vocal_name}}</span><span class="some-number">{{vocal.song_info_set.all.count}}</span></div></a></li>{% endfor %}
         </ul>
         {% include 'parts/pagination.html' %}
     {% else %}

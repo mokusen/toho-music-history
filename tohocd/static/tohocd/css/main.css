@@ -7,15 +7,15 @@
 	list-style: none;
 }
 .bread-size{
-	font-size: 0.6em;
+	font-size: 0.9em;
 }
 .breadcrumb a{
 	color:#0086CC;
-	font-size: 0.6em;
+	font-size: 0.9em;
 }
 .breadcrumb li {
 	display: inline-block;
-	font-size: 0.6em;
+	font-size: 0.9em;
 	color: #3F4551;
 }
 .breadcrumb li::after{

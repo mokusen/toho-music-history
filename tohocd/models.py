@@ -2,7 +2,7 @@ from django.db import models
 
 class Circle_master(models.Model):
     circle_name = models.CharField(max_length=255)
-    circle_url = models.URLField(max_length=255, blank=True)
+    circle_url = models.URLField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -12,7 +12,7 @@ class Circle_master(models.Model):
 class Cd(models.Model):
     circle = models.ForeignKey(Circle_master, on_delete=models.CASCADE)
     cd_name = models.CharField(max_length=255)
-    cd_url = models.URLField(max_length=255, blank=True)
+    cd_url = models.URLField(max_length=255, blank=True, null=True)
     release_on = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -72,9 +72,9 @@ class Original_song(models.Model):
 
 class Song_info(models.Model):
     song = models.ForeignKey(Song, on_delete=models.CASCADE)
-    vocal = models.ForeignKey(Vocal_master, on_delete=models.CASCADE, null=True, blank=True)
-    lyric = models.ForeignKey(Lyric_master, on_delete=models.CASCADE, null=True, blank=True)
-    arrange = models.ForeignKey(Arrange_master, on_delete=models.CASCADE, null=True, blank=True)
+    vocal = models.ForeignKey(Vocal_master, on_delete=models.CASCADE, blank=True, null=True)
+    lyric = models.ForeignKey(Lyric_master, on_delete=models.CASCADE, blank=True, null=True)
+    arrange = models.ForeignKey(Arrange_master, on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

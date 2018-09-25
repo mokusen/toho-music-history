@@ -72,9 +72,9 @@ class Original_song(models.Model):
 
 class Song_info(models.Model):
     song = models.ForeignKey(Song, on_delete=models.CASCADE)
-    vocal = models.ForeignKey(Vocal_master, on_delete=models.CASCADE)
-    lyric = models.ForeignKey(Lyric_master, on_delete=models.CASCADE)
-    arrange = models.ForeignKey(Arrange_master, on_delete=models.CASCADE)
+    vocal = models.ForeignKey(Vocal_master, on_delete=models.CASCADE, null=True, blank=True)
+    lyric = models.ForeignKey(Lyric_master, on_delete=models.CASCADE, null=True, blank=True)
+    arrange = models.ForeignKey(Arrange_master, on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

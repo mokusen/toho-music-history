@@ -35,9 +35,9 @@
             <td><a href="{{song.cd.circle.circle_url}}{{song.cd.cd_url}}", rel="nofollow"><i class="fas fa-external-link-alt"></i> {{song.cd.cd_name}}</a></td>
             <td><a href="{{song.cd.circle.circle_url}}", rel="nofollow"><i class="fas fa-external-link-alt"></i> {{song.cd.circle.circle_name}}</a></td>
             <td>{{song.song_name}}</td>
-            <td>{% for song_info in song.song_info_set.all %}{{song_info.vocal.vocal_name}}<br>{% endfor %}</td>
-            <td>{% for song_info in song.song_info_set.all %}{{song_info.lyric.lyric_name}}<br>{% endfor %}</td>
-            <td>{% for song_info in song.song_info_set.all %}{{song_info.arrange.arrange_name}}<br>{% endfor %}</td>
+            <td>{% for song_info in song.song_info_set.all %}{% if song_info.vocal.vocal_name != null %}{{song_info.vocal.vocal_name}}<br>{% endif %}{% endfor %}</td>
+            <td>{% for song_info in song.song_info_set.all %}{% if song_info.lyric.lyric_name != null %}{{song_info.lyric.lyric_name}}<br>{% endif %}{% endfor %}</td>
+            <td>{% for song_info in song.song_info_set.all %}{% if song_info.arrange.arrange_name != null %}{{song_info.arrange.arrange_name}}<br>{% endif %}{% endfor %}</td>
             <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_name}}<br>{% endfor %}</td>
             <td>{% for ori_info in song.original_info_set.all %}{{ori_info.original_song.original_work.original_work_name}}<br>{% endfor %}</td>
             <td>{{song.cd.release_on}}</td>

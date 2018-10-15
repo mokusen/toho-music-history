@@ -1,13 +1,13 @@
 # toho-music-history
-It is a Django Application.You can see music infomation of toho. 
+It is a Django Application.You can see music infomation of toho.
 
 ## Requirements
 My environment is as follows.
 
-|  | Version |
-| :----: | :---: |
-| Python | 3.6.5 |
-| Django | 2.0.6 |
+|        | Version |
+| :----: | :-----: |
+| Python |  3.6.5  |
+| Django |  2.0.6  |
 
 ## Quick start
 init setting:
@@ -45,12 +45,12 @@ python manage.py createsuperuser
 python manage.py runserver
 ~~~
 ## Notes
-Initial information is not included in DB. 
+Initial information is not included in DB.
 ## Licence
 This Application is released under the MIT License, see LICENSE.
 ## Bug
 1. In the info page, the display number and the actual number are different
 ## To be currect
 | bug-number | priority |
-| :--- | :---: |
-| 1 | Low |
+| :--------- | :------: |
+| 1          |   Low    |

@@ -1,3 +1,4 @@
+from django.utils.deprecation import MiddlewareMixin
 """
 Django settings for django_app project.
 
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Support for proxy
-from django.utils.deprecation import MiddlewareMixin
+
+
 class MultipleProxyMiddleware(MiddlewareMixin):
     FORWARDED_FOR_FIELDS = [
         'HTTP_X_FORWARDED_FOR',
@@ -58,7 +60,8 @@ class MultipleProxyMiddleware(MiddlewareMixin):
                 if ',' in request.META[field]:
                     parts = request.META[field].split(',')
                     request.META[field] = parts[-1].strip()
-                    
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

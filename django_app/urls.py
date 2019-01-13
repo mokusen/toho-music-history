@@ -17,17 +17,17 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 
-admin.site.site_title='東方音楽歴'
-admin.site.site_header='東方音楽歴管理サイト'
-admin.site.index_title='メニュー'
+admin.site.site_title = '東方音楽歴'
+admin.site.site_header = '東方音楽歴管理サイト'
+admin.site.index_title = 'メニュー'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tohocd.urls')),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+# if settings.DEBUG:
+#     import debug_toolbar
+#     urlpatterns = [
+#         path('__debug__/', include(debug_toolbar.urls)),
+#     ] + urlpatterns

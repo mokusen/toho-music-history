@@ -5,12 +5,13 @@ db.sqlite3
 *.py[co]
 local_settings.py
 *.csv
+venv-toho
 
 ### Notes ###
 dbAccess
 spec
 todo
-start.ps1
+**.sh
 
 ### VsCode ###
 .vscode

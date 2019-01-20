@@ -1,6 +1,7 @@
 from ..models import Vocal_master
 from django.db.models.functions import Lower
 
+
 def get_vocals(word):
     """
     あいまい検索でmodels.Vocal_masterクラスを取得する
@@ -18,15 +19,16 @@ def get_vocals(word):
     vocal = Vocal_master.objects.select_related().filter(vocal_name__contains=word).order_by(Lower('vocal_name'))
     return vocal
 
+
 def get_vocal_byId(id):
     """
     models.Vocal_master.idで完全一致検索を行い、Vocal_masterクラスを取得する
-    
+
     Parameters
     ----------
     id : int or str
         検索するID
-    
+
     Returns
     -------
     vocal

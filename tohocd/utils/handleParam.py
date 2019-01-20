@@ -1,6 +1,8 @@
 from django.core.paginator import Paginator
 from ..forms import FindForm
 import math
+
+
 def create_param(model, num, any_dict):
     """
     画面へ渡すParamを設定する
@@ -14,7 +16,7 @@ def create_param(model, num, any_dict):
     any_dict : {any_name : any, ...}
         その他の設定要素
         any_name : anyを画面側で呼び出す際の名前
-        any : 設定は各自で決定することが出来る  
+        any : 設定は各自で決定することが出来る
     Returns
     -------
     param
@@ -41,6 +43,7 @@ def create_param(model, num, any_dict):
     param.update(any_dict)
     return param
 
+
 def __get_diff_param(request_value):
     """
     差分の辞書を形成し、返却する。
@@ -49,7 +52,7 @@ def __get_diff_param(request_value):
     ----------
     request_value : request.GET
         URLのParam
-    
+
     Returns
     -------
     diff_param
@@ -64,6 +67,7 @@ def __get_diff_param(request_value):
     diff_param = {key: '' for key in diff_list}
     return diff_param
 
+
 def check_param(request_value):
     """
     URLに対象となるParamが存在する
@@ -74,7 +78,7 @@ def check_param(request_value):
     ----------
     request_value : request.GET
         URLのParam
-    
+
     Returns
     -------
     return_param
@@ -86,6 +90,7 @@ def check_param(request_value):
     return_param.update(diff_param)
     return return_param
 
+
 def prepare_param(request_value):
     """
     request.GETから検索ワード、フォーム状態、ページナンバーを取得する
@@ -94,7 +99,7 @@ def prepare_param(request_value):
     ----------
     request_value : request.GET
         URLのParam
-    
+
     Returns
     -------
     word : request.GET['find']
@@ -114,6 +119,7 @@ def prepare_param(request_value):
     num = prepare_param_page(request_value)
     return word, form, num
 
+
 def prepare_param_page(request_value):
     """
     request.GETからページナンバーを取得する
@@ -121,7 +127,7 @@ def prepare_param_page(request_value):
     ----------
     request_value : request.GET
         URLのParam
-    
+
     Returns
     -------
     num : page num
@@ -141,6 +147,7 @@ def prepare_param_page(request_value):
         num = 1
     return num
 
+
 def prepare_param_order(request_value):
     """
     request.GETからorder_byのparamを取得する
@@ -148,7 +155,7 @@ def prepare_param_order(request_value):
     ----------
     request_value : request.GET
         URLのParam
-    
+
     Returns
     -------
     order_param : order_by param
@@ -161,6 +168,7 @@ def prepare_param_order(request_value):
         order_param = ''
     return order_param
 
+
 def prepare_param_page_order(request_value):
     """
     request.GETからページナンバー、order_byのparamを取得する
@@ -168,7 +176,7 @@ def prepare_param_page_order(request_value):
     ----------
     request_value : request.GET
         URLのParam
-    
+
     Returns
     -------
     num : page num

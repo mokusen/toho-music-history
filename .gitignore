@@ -5,13 +5,17 @@ db.sqlite3
 *.py[co]
 local_settings.py
 *.csv
-venv-toho
 
 ### Notes ###
-dbAccess
+DbAccess
 spec
 todo
 **.sh
+
+### deploy ###
+**.yaml
+main.py
+.gc**
 
 ### VsCode ###
 .vscode

@@ -11,46 +11,40 @@ My environment is as follows.
 
 ## Quick start
 init setting:
-~~~PowerShell
+```PowerShell
 # Windows
 > mkdir (Clone destination directory)
 > cd (Clone destination directory)
 > python -m (any environment name) venv
 > ~\(any environment name)\scripts\activate.ps1
-~~~
-~~~bash
+```
+```bash
 # Linux
 $ mkdir (Clone destination directory)
 $ cd (Clone destination directory)
 $ python -m (any environment name) venv
 $ source (any environment name)/bin/activate
-~~~
+```
 Clone application:
-~~~bash
+```bash
 # if current_directory then
 git clone https://github.com/mokusen/toho-music-history.git
 # else then
 cd (Clone destination directory)
 git clone https://github.com/mokusen/toho-music-history.git
-~~~
+```
 install requirement:
-~~~bash
+```bash
 pip install requirement.txt
-~~~
+```
 application active:
-~~~bash
+```bash
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
-~~~
+```
 ## Notes
 Initial information is not included in DB.
 ## Licence
 This Application is released under the MIT License, see LICENSE.
-## Bug
-1. In the info page, the display number and the actual number are different
-## To be currect
-| bug-number | priority |
-| :--------- | :------: |
-| 1          |   Low    |

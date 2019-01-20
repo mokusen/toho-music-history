@@ -1,4 +1,4 @@
-"""django_app URL Configuration
+"""toho_music_history URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -25,9 +25,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tohocd.urls')),
 ]
-
-# if settings.DEBUG:
-#     import debug_toolbar
-#     urlpatterns = [
-#         path('__debug__/', include(debug_toolbar.urls)),
-#     ] + urlpatterns

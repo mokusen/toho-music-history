@@ -1,6 +1,7 @@
 from ..models import Original_song
 from django.db.models.functions import Lower
 
+
 def get_orisongs(word):
     """
     あいまい検索でmodels.Original_songクラスを取得する
@@ -18,15 +19,16 @@ def get_orisongs(word):
     orisong = Original_song.objects.select_related().filter(original_name__contains=word).order_by(Lower('original_name'))
     return orisong
 
+
 def get_orisong_byId(id):
     """
     models.Original_song.idで完全一致検索を行い、Original_songクラスを取得する
-    
+
     Parameters
     ----------
     id : int or str
         検索するID
-    
+
     Returns
     -------
     orisong

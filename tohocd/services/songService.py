@@ -2,14 +2,15 @@ from ..models import Song
 from django.db.models import Q
 from django.db.models.functions import Lower
 
+
 def __check_param(param):
     """
     paramからorder_byのparamを決定する
-    
+
     Parameters
     ----------
     param : request.GET['sort']
-    
+
     Returns
     -------
     order_param : Lower(str)
@@ -44,6 +45,7 @@ def __check_param(param):
         order_param = "pk"
     return order_param
 
+
 def __reverse(song, param, order_param):
     """
     reverseを行うメソッド
@@ -55,7 +57,7 @@ def __reverse(song, param, order_param):
     param : request.GET['sort]
 
     order_param : str
-    
+
     Returns
     -------
     song : models.Song.reverse()
@@ -64,6 +66,7 @@ def __reverse(song, param, order_param):
     if order_param != "pk" and "_d" in param:
         song = song.reverse()
     return song
+
 
 def get_songs_byOR(word, param):
     """
@@ -75,7 +78,7 @@ def get_songs_byOR(word, param):
         検索するワード
     param : request.GET['sort]
         リクエストのsortパラメーター
-    
+
     Returns
     -------
     song
@@ -83,30 +86,31 @@ def get_songs_byOR(word, param):
     """
     order_param = __check_param(param)
     song = Song.objects.select_related().filter(
-            Q(song_name__contains=word) |
-            Q(cd__cd_name__contains=word) |
-            Q(cd__release_on__contains=word) |
-            Q(cd__circle__circle_name__contains=word) |
-            Q(song_info__vocal__vocal_name__contains=word) |
-            Q(song_info__lyric__lyric_name__contains=word) |
-            Q(song_info__arrange__arrange_name__contains=word) |
-            Q(original_info__original_song__original_name__contains=word) |
-            Q(original_info__original_song__original_work__original_work_name__contains=word)
-        ).order_by(order_param).distinct()
+        Q(song_name__contains=word) |
+        Q(cd__cd_name__contains=word) |
+        Q(cd__release_on__contains=word) |
+        Q(cd__circle__circle_name__contains=word) |
+        Q(song_info__vocal__vocal_name__contains=word) |
+        Q(song_info__lyric__lyric_name__contains=word) |
+        Q(song_info__arrange__arrange_name__contains=word) |
+        Q(original_info__original_song__original_name__contains=word) |
+        Q(original_info__original_song__original_work__original_work_name__contains=word)
+    ).order_by(order_param).distinct()
     song = __reverse(song, param, order_param)
     return song
+
 
 def get_songs_byAND(word_dict, param):
     """
     曖昧AND条件でmodels.Songクラスを取得する
-    
+
     Parameters
     ----------
     word_dict : search_dict
         song,cd,release,circle,vocal,lyric,arrange,ori_song,ori_workを所持した辞書
     param : request.GET['sort]
         リクエストのsortパラメーター
-    
+
     Returns
     -------
     song
@@ -127,17 +131,18 @@ def get_songs_byAND(word_dict, param):
     song = __reverse(song, param, order_param)
     return song
 
+
 def get_song_byCd(id, param):
     """
     models.Cd.idの完全一致でmodels.Songクラスを取得する
-    
+
     Parameters
     ----------
     id : int or str
         検索するCDのID
     param : request.GET['sort]
         リクエストのsortパラメーター
-    
+
     Returns
     -------
     song
@@ -147,18 +152,19 @@ def get_song_byCd(id, param):
     song = Song.objects.select_related().filter(cd__id=id).order_by(order_param)
     song = __reverse(song, param, order_param)
     return song
-    
+
+
 def get_song_byVocal(id, word, param):
     """
     models.Vocal_master.idの完全一致でmodels.Songクラスを取得する
-    
+
     Parameters
     ----------
     id : int or str
         検索するCDのID
     param : request.GET['sort]
         リクエストのsortパラメーター
-    
+
     Returns
     -------
     song
@@ -176,21 +182,22 @@ def get_song_byVocal(id, word, param):
         Q(song_info__arrange__arrange_name__contains=word) |
         Q(original_info__original_song__original_name__contains=word) |
         Q(original_info__original_song__original_work__original_work_name__contains=word)
-        ).order_by(order_param).distinct()
+    ).order_by(order_param).distinct()
     song = __reverse(song, param, order_param)
     return song
+
 
 def get_song_byLyric(id, word, param):
     """
     models.Lyric_master.idの完全一致でmodels.Songクラスを取得する
-    
+
     Parameters
     ----------
     id : int or str
         検索するCDのID
     param : request.GET['sort]
         リクエストのsortパラメーター
-    
+
     Returns
     -------
     song
@@ -208,21 +215,22 @@ def get_song_byLyric(id, word, param):
         Q(song_info__arrange__arrange_name__contains=word) |
         Q(original_info__original_song__original_name__contains=word) |
         Q(original_info__original_song__original_work__original_work_name__contains=word)
-        ).order_by(order_param).distinct()
+    ).order_by(order_param).distinct()
     song = __reverse(song, param, order_param)
     return song
+
 
 def get_song_byArrange(id, word, param):
     """
     models.Arrange_master.idの完全一致でmodels.Songクラスを取得する
-    
+
     Parameters
     ----------
     id : int or str
         検索するCDのID
     param : request.GET['sort]
         リクエストのsortパラメーター
-    
+
     Returns
     -------
     song
@@ -240,21 +248,22 @@ def get_song_byArrange(id, word, param):
         Q(song_info__arrange__arrange_name__contains=word) |
         Q(original_info__original_song__original_name__contains=word) |
         Q(original_info__original_song__original_work__original_work_name__contains=word)
-        ).order_by(order_param).distinct()
+    ).order_by(order_param).distinct()
     song = __reverse(song, param, order_param)
     return song
+
 
 def get_song_byOrisong(id, word, param):
     """
     models.Original_song.idの完全一致でmodels.Songクラスを取得する
-    
+
     Parameters
     ----------
     id : int or str
         検索するCDのID
     param : request.GET['sort]
         リクエストのsortパラメーター
-    
+
     Returns
     -------
     song
@@ -272,6 +281,6 @@ def get_song_byOrisong(id, word, param):
         Q(song_info__arrange__arrange_name__contains=word) |
         Q(original_info__original_song__original_name__contains=word) |
         Q(original_info__original_song__original_work__original_work_name__contains=word)
-        ).order_by(order_param).distinct()
+    ).order_by(order_param).distinct()
     song = __reverse(song, param, order_param)
     return song

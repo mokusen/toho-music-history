@@ -1,6 +1,13 @@
 {% load static %}
 <html lang="ja">
     <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WZC3TGR');</script>
+        <!-- End Google Tag Manager -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="format-detection" content="telephone=no">
@@ -13,19 +20,23 @@
         <link href="{% static 'tohocd/images/favicon.ico' %}" rel="shortcut icon" type="image/vnd.microsoft.icon">
         <link href="{% static 'tohocd/images/app-touch-icon.png' %}" rel="apple-touch-icon">
         {% block css %}{% endblock %}
-        <title>{% block addtitle %}{% endblock %}東方音楽歴</title>
-        <meta name="description" content="東方音楽歴とは、東方Projectの同人音楽のデータベースサイトです。CD、サークル、曲名、歌手、作詞者、編曲者、原曲、原作、発売日で検索することが出来ます。" />
+        <title>{% block addtitle %}{% endblock %}東方楽曲録</title>
+        <meta name="description" content="東方楽曲録とは、東方Projectの同人音楽のデータベースサイトです。CD、サークル、曲名、歌手、作詞者、編曲者、原曲、原作、発売日で検索することが出来ます。" />
         <!-- 共有OGP -->
-        <meta property="og:title" content="東方音楽歴">
+        <meta property="og:title" content="東方楽曲録">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{request.build_absolute_uri}}">
         <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'tohocd/images/ogp.jpg' %}">
-        <meta property="og:site_name" content="東方音楽歴">
-        <meta property="og:description" content="東方音楽歴とは、東方Projectの同人音楽のデータベースサイトです。CD、サークル、曲名、歌手、作詞者、編曲者、原曲、原作、発売日で検索することが出来ます。">
+        <meta property="og:site_name" content="東方楽曲録">
+        <meta property="og:description" content="東方楽曲録とは、東方Projectの同人音楽のデータベースサイトです。CD、サークル、曲名、歌手、作詞者、編曲者、原曲、原作、発売日で検索することが出来ます。">
         <!-- TwitterOGP -->
         <meta name="twitter:card" content="summary">
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZC3TGR"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <header id="header">
             <div class="header-container">
                 <div class="site-ttl"><a href="{% url 'index' %}"><div class="header-logo"></div></a></div>
@@ -53,7 +64,7 @@
         <div id="footer">
             <hr>
             <span>Copyright (C) 2018 もくせん</span>
-            <a href="{% url 'about' %}">東方音楽歴とは</a>
+            <a href="{% url 'about' %}">東方楽曲録とは</a>
         </div>
         <p class="pagetop"><a href="#header"><i class="far fa-3x fa-arrow-alt-circle-up"></i></a></p>
     </body>

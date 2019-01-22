@@ -58,6 +58,7 @@
 }
 .cdInfo-table-wrapper {
 	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 @media screen and (min-width: 768px) {
 	.cdInfo-table-wrapper {

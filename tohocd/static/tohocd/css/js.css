@@ -7,7 +7,7 @@
 /* パソコン向けではナビゲーションを常に表示 */
 @media screen and (min-width: 768px) {
 	#js-slidemenu {
-		display: block !important; 
+		display: block !important;
 	}
 }
 /* ナビゲーションが開いたときに画面を暗くする処理のためのCSS */

@@ -1,20 +1,18 @@
 ### Django ###
 __pycache__
-static
-db.sqlite3
 *.py[co]
 local_settings.py
-*.csv
+dev_requirements.txt
 
-### Notes ###
-DbAccess
+### Develop ###
 spec
 todo
 **.sh
 
 ### deploy ###
-**.yaml
+static
 main.py
+**.yaml
 .gc**
 
 ### VsCode ###

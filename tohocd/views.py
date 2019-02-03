@@ -150,3 +150,8 @@ def oriwork(request):
     oriwork = oriworkService.get_oriworks(word)
     params = handleParam.create_param(oriwork, num, {'form': form})
     return render(request, 'tohocd/oriWork.html', params)
+
+
+def sitemap(request):
+    from django.http import FileResponse
+    return FileResponse(open('sitemap.xml', 'rb'))

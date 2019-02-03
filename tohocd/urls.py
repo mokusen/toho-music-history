@@ -23,4 +23,5 @@ urlpatterns = [
     path('orisong/detail/', views.orisong_redirect, name="orisong_detail"),
     path('orisong/detail/<int:id>', views.orisong_detail, name="orisong_detail"),
     path('oriwork/', views.oriwork, name="oriwork"),
+    path('sitemap', views.sitemap, name='sitemap'),
 ]

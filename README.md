@@ -6,8 +6,8 @@ My environment is as follows.
 
 |        | Version |
 | :----: | :-----: |
-| Python |  3.6.5以上  |
-| Django |  2.0.6以上  |
+| Python |  3.7.2以上  |
+| Django |  2.2.4以上  |
 
 ## Quick start
 init setting:

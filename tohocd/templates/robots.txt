@@ -1,0 +1,8 @@
+User-agent: *
+Disallow:/
+
+User-agent: googlebot
+User-agent: GoogleStackdriverMonitoring-UptimeChecks(https://cloud.google.com/monitoring)
+Allow:/
+
+Sitemap:https://toho-song-record.mokusen.com/sitemap
